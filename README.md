@@ -5,8 +5,8 @@
 
 ### WIREFRAMES
 ![Frontend Wireframes 1](https://i.imgur.com/4joRKgt.jpg)
-![Frontend Wireframes 2](https://i.imgur.com/4joRKgt.jpg)
-![Frontend Wireframes 3](https://i.imgur.com/4joRKgt.jpg)
+![Frontend Wireframes 2](https://i.imgur.com/aYzrfDC.jpg)
+![Frontend Wireframes 3](https://i.imgur.com/BGugDaf.jpg)
 
 ### USERSTORIES
 * Users can...
