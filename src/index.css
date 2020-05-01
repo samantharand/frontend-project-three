@@ -11,11 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/*
 
-.className {
-	padding: 0 auto;
-}*/
+.fake-link {
+	cursor: pointer;
+	color: royalblue;
+	text-decoration: underline;
+}
 
 Form {
 	width: 50%;
