@@ -13,6 +13,7 @@ export default class ArtworkContainer extends Component {
 
 	componentDidMount() {
 		this.getArt()
+		console.log('wassup');
 	}
 
 	getArt = async () => {
