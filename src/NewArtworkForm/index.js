@@ -20,12 +20,16 @@ export default class NewArtworkForm extends Component {
 		})
 	}
 
+	handleSubmit = () => {
+		this.props.addArt(this.state)
+	}
+
 	render() {
 		return (
-			<Modal trigger={<Button>add</Button>}>
+			<Modal open={true} closeIcon={true} onClose={this.props.closeAddModal}>
 				<p>add daaaa art :)</p>
 				<Modal.Content>
-					<Form>
+					<Form onSubmit={this.handleSubmit}>
 						<Form.Field>
 							<Label>Title</Label>
 							<Input 
@@ -76,6 +80,7 @@ export default class NewArtworkForm extends Component {
 								onChange={this.handleChange}
 							/>
 						</Form.Field>
+						<Button>Add Art</Button>
 					</Form>
 				</Modal.Content>
 

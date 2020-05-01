@@ -69,12 +69,14 @@ export default class App extends Component {
       })
 
       const loginJson = await loginResponse.json()
-
-      if(loginJson.staus === 201) {
+      console.log(loginJson);
+      if(loginJson.status === 201) {
+        console.log("HIIII ");
         this.setState({
           loggedIn: true
         })
       } else {
+        console.log('ughslkdfj???/');
         this.setState({
           message: loginJson.message
         })
@@ -86,6 +88,7 @@ export default class App extends Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className="App">
         {

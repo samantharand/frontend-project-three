@@ -6,7 +6,8 @@ export default class ArtworkContainer extends Component {
 	constructor() {
 		super()
 		this.state = {
-			artwork: []
+			artwork: [],
+			adding: false
 		}
 	}
 
@@ -35,12 +36,43 @@ export default class ArtworkContainer extends Component {
 		}
 	}
 
+	addArt = async (artToAdd) => {
+		console.log(artToAdd);
+		try {
+			const url = process.env.REACT_APP_API_URL + '/artworks/add'
+			const addArtResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'POST',
+				body: JSON.stringify(artToAdd),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const addArtJson = await addArtResponse.json()
+			console.log(addArtJson);
+			
+		} catch (error) {
+			console.error(error)
+		}
+	}
+
+	closeAddModal = () => {
+		this.setState({
+			adding: false
+		})
+	}
+
 	render(){
 		console.log(this.state);
 		return (
 			<>
 				<p> ArtworkContainer </p>
-				<NewArtworkForm />
+				{
+					this.state.adding
+					&&
+					<NewArtworkForm addArt={this.addArt} adding={this.state.adding} closeAddModal={this.closeAddModal}/>
+				}
 				<ArtworkList artwork={this.state.artwork}/>
 			</>
 		)
