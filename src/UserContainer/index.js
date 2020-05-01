@@ -43,7 +43,7 @@ export default class UserContainer extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<p> UserContainer </p>
+				<h3> UserContainer </h3>
 				<UserList users={this.state.users}/>
 			</React.Fragment>
 		)
