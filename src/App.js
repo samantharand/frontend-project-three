@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LoginRegisterForm from './LoginRegisterForm'
 import ArtworkContainer from './ArtworkContainer'
+import Header from './Header'
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 
@@ -87,10 +88,36 @@ export default class App extends Component {
     }
   }
 
+  logout = async () => {
+    console.log('logout');
+    try {
+      
+      const url = process.env.REACT_APP_API_URL + '/users/logout'
+
+      const logoutResponse = await fetch(url, {
+        include: 'credentials'
+      })
+
+      const logoutJson = await logoutResponse.json()
+      console.log(logoutJson);
+      if(logoutJson.status === 200) {
+        this.setState({
+          loggedIn: false
+        })
+      }
+
+    } catch (error) {
+
+      console.error(error)
+
+    }
+  }
+
   render() {
     console.log(this.state);
     return (
       <div className="App">
+        <Header logout={this.logout}/>
         {
           !this.state.loggedIn
           &&
