@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ArtworkList from '../ArtworkList'
+import NewArtworkForm from '../NewArtworkForm'
 
 export default class ArtworkContainer extends Component {
 	constructor() {
@@ -39,6 +40,7 @@ export default class ArtworkContainer extends Component {
 		return (
 			<>
 				<p> ArtworkContainer </p>
+				<NewArtworkForm />
 				<ArtworkList artwork={this.state.artwork}/>
 			</>
 		)
