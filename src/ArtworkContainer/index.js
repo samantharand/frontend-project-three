@@ -13,17 +13,28 @@ export default class ArtworkContainer extends Component {
 	}
 
 	getArt = async () => {
-		const url = process.env.REACT_APP_API_URL + '/artworks/'
+		try {
+			
+			const url = process.env.REACT_APP_API_URL + '/artworks/all'
 
-		const artworksResponse = await fetch(url, {
-			credentials: 'include'
-		})
-		console.log('artworksResponse', artworksResponse);
-		const artworksJson = await artworksResponse.json()
-		console.log('artworksJson', artworksJson);
+			const artworksResponse = await fetch(url, {
+				credentials: 'include'
+			})
+			console.log('artworksResponse', artworksResponse);
+			const artworksJson = await artworksResponse.json()
+			console.log('artworksJson', artworksJson);
+
+			this.setState({
+				artwork: artworksJson.data
+			})
+
+		} catch (error) {
+			console.error(error)
+		}
 	}
 
 	render(){
+		console.log(this.state);
 		return (
 			<p> ArtworkContainer </p>
 		)
