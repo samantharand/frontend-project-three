@@ -35,14 +35,18 @@ export default class LoginRegisterForm extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
-		console.log("wassup its handle submit gettin called");
-		console.log(this.state);
+		if(this.state.action == 'Register') {
+			this.props.register(this.state)
+		} else {
+			this.props.login(this.state)
+		}
 	}
 
 	render() {
 		return (
 			<div className='LoginRegisterForm'>
 				<h2> {this.state.action} </h2>
+				<p> {this.props.message} </p>
 				<Form onSubmit={this.handleSubmit}>
 					<Label> username </Label>
 					<Form.Input 
