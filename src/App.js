@@ -117,17 +117,18 @@ export default class App extends Component {
     console.log(this.state);
     return (
       <div className="App">
-        <Header logout={this.logout}/>
+        <Header logout={this.logout} loggedIn={this.state.loggedIn}/>
         {
           !this.state.loggedIn
-          &&
+          ?
           <LoginRegisterForm 
             message={this.state.message} 
             login={this.login} 
             register={this.register}
           />
+          :
+          <ArtworkContainer />
         }
-        <ArtworkContainer />
       </div>
     );
   }
