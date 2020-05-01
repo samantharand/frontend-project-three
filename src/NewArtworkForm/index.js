@@ -14,6 +14,12 @@ export default class NewArtworkForm extends Component {
 		}
 	}
 
+	handleChange = (event) => {
+		this.setState({
+			[event.target.name]: event.target.value
+		})
+	}
+
 	render() {
 		return (
 			<Modal trigger={<Button>add</Button>}>
@@ -28,6 +34,7 @@ export default class NewArtworkForm extends Component {
 								type='text'
 								placeholder='Title'
 								value={this.state.title}
+								onChange={this.handleChange}
 							/>
 						</Form.Field>
 						<Form.Field>
@@ -38,6 +45,7 @@ export default class NewArtworkForm extends Component {
 								type='text'
 								placeholder='Image'
 								value={this.state.image}
+								onChange={this.handleChange}
 							/>
 						</Form.Field>
 						<Form.Field>
@@ -48,10 +56,16 @@ export default class NewArtworkForm extends Component {
 								type='text'
 								placeholder='Medium'
 								value={this.state.medium}
+								onChange={this.handleChange}
 							/>
 						</Form.Field>
 						<Label> Inspiration </Label>
-						<Form.TextArea value={this.state.inspiration} placeholder='What inspired this?!'/>
+						<Form.Field 
+							control='textarea' 
+							rows='3' 
+							placeholder='What inspired this?!' 
+							value={this.state.value}
+						/>
 						<Form.Field>
 							<Label>Date Made</Label>
 							<Input 
@@ -59,6 +73,7 @@ export default class NewArtworkForm extends Component {
 								name='date_made'
 								type='date'
 								value={this.state.date_made}
+								onChange={this.handleChange}
 							/>
 						</Form.Field>
 					</Form>
