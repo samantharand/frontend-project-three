@@ -39,7 +39,7 @@ export default class ArtworkContainer extends Component {
 		return (
 			<>
 				<p> ArtworkContainer </p>
-				<ArtworkList />
+				<ArtworkList artwork={this.state.artwork}/>
 			</>
 		)
 	}
