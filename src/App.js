@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LoginRegisterForm from './LoginRegisterForm'
 import ArtworkContainer from './ArtworkContainer'
+import UserContainer from './UserContainer'
 import Header from './Header'
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
@@ -127,7 +128,10 @@ export default class App extends Component {
             register={this.register}
           />
           :
-          <ArtworkContainer />
+          <React.Fragment>
+            <ArtworkContainer />
+            <UserContainer />
+          </React.Fragment>
         }
       </div>
     );
