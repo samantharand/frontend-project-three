@@ -13,9 +13,13 @@ code {
 }
 
 .fake-link {
+  font-weight: 600;
 	cursor: pointer;
-	color: royalblue;
-	text-decoration: underline;
+
+}
+
+.fake-link:hover {
+  text-decoration: underline;
 }
 
 Form {
