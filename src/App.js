@@ -3,6 +3,7 @@ import LoginRegisterForm from './LoginRegisterForm'
 import ArtworkContainer from './ArtworkContainer'
 import UserContainer from './UserContainer'
 import Header from './Header'
+import Home from './Home'
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 
@@ -12,7 +13,7 @@ export default class App extends Component {
     this.state = {
       loggedIn: false,
       message: '',
-      mode: ''
+      mode: 'Home'
     }
   }
 
@@ -48,7 +49,8 @@ export default class App extends Component {
       } else {
 
         this.setState({
-          loggedIn: true
+          loggedIn: true,
+          mode: 'Home'
         })
 
       }
@@ -76,7 +78,8 @@ export default class App extends Component {
       if(loginJson.status === 201) {
         console.log("HIIII ");
         this.setState({
-          loggedIn: true
+          loggedIn: true,
+          mode: 'Home'
         })
       } else {
         console.log('ughslkdfj???/');
@@ -114,40 +117,50 @@ export default class App extends Component {
 
     }
   }
-       //   <React.Fragment>
-         //   <ArtworkContainer />
-         //   <UserContainer />
-        //  </React.Fragment>
+
+  switchMode = (event) => {
+    this.setState({
+      mode: event.target.innerText
+    })
+  }
 
   render() {
     console.log(this.state);
     return (
       <div className="App">
-        <Header logout={this.logout} loggedIn={this.state.loggedIn}/>
+        <Header 
+          logout={this.logout} 
+          loggedIn={this.state.loggedIn}
+          switchMode={this.switchMode}
+        />
         
-        {
-          !this.state.loggedIn
-          ?
-          <LoginRegisterForm 
-            message={this.state.message} 
-            login={this.login} 
-            register={this.register}
-          />
-          :
-          <React.Fragment>
-            {
-              this.state.mode == "user"
-              &&
-              <UserContainer />
-            }
-            {
-              this.state.mode == "artwork"
-              &&
-              <ArtworkContainer />
-            }
-          </React.Fragment>
+        <React.Fragment>
+          {
+            this.state.mode === "Home"
+            &&
+            <Home />
+          }
+          {
+            this.state.mode === "User"
+            &&
+            <UserContainer />
+          }
+          {
+            this.state.mode === "Artwork"
+            &&
+            <ArtworkContainer />
+          }
+          {
+            this.state.mode === "Log In / Register"
+            &&
+            <LoginRegisterForm 
+              message={this.state.message} 
+              login={this.login} 
+              register={this.register}
+            />
+          }
+        </React.Fragment>
 
-        }
       </div>
     );
   }

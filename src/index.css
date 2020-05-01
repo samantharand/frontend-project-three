@@ -22,6 +22,10 @@ code {
   text-decoration: underline;
 }
 
+span {
+  padding: 4px;
+}
+
 Form {
 	width: 50%;
 	margin: 0 auto;
