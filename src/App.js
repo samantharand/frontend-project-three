@@ -11,7 +11,8 @@ export default class App extends Component {
     super()
     this.state = {
       loggedIn: false,
-      message: ''
+      message: '',
+      mode: ''
     }
   }
 
@@ -113,12 +114,17 @@ export default class App extends Component {
 
     }
   }
+       //   <React.Fragment>
+         //   <ArtworkContainer />
+         //   <UserContainer />
+        //  </React.Fragment>
 
   render() {
     console.log(this.state);
     return (
       <div className="App">
         <Header logout={this.logout} loggedIn={this.state.loggedIn}/>
+        
         {
           !this.state.loggedIn
           ?
@@ -129,9 +135,18 @@ export default class App extends Component {
           />
           :
           <React.Fragment>
-            <ArtworkContainer />
-            <UserContainer />
+            {
+              this.state.mode == "user"
+              &&
+              <UserContainer />
+            }
+            {
+              this.state.mode == "artwork"
+              &&
+              <ArtworkContainer />
+            }
           </React.Fragment>
+
         }
       </div>
     );
