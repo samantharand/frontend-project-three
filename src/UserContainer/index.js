@@ -9,7 +9,8 @@ export default class UserContainer extends Component {
 
 		this.state ={
 			users: [],
-			mode: 'index'
+			mode: 'index',
+			userToShowData: ''
 		}
 	}
 
@@ -20,18 +21,58 @@ export default class UserContainer extends Component {
 
 	switchMode = (id) => {
 		console.log("SWITCH MODE in USER CONTAINER");
-		// console.log(event.currentTarget);
-		console.log(id);
+
+		console.log("id from switch mode", id);
 
 		if(this.state.mode === 'index') {
+
+			this.getUserToShowInfo(id)
+
 			this.setState({
 				mode: 'show'
 			})
 		} else {
 			this.setState({
-				mode: 'index'
+				mode: 'index',
+				userToShowData: ''
 			})
 		}
+	}
+
+	getUserToShowInfo = async (id) => {
+		console.log("ID FROM getUserToShowInfo",id);
+		try {
+
+			const url = process.env.REACT_APP_API_URL + '/users/' + id
+
+			const showUserResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			console.log('showUserResponse', showUserResponse);
+
+			const showUserJson = await showUserResponse.json()
+			console.log('showUserJson', showUserJson);
+
+			this.setState({
+				userToShowData: showUserJson.data
+			})
+			
+		} catch (error) {
+			console.error(error)
+		}
+	}
+
+	closeShowModal = () => {
+		this.switchMode()
+		// set idOfUserToShow to ''
+		// set mode to 'index'
+
+			// maybe call switch mode ???
 	}
 
 	getUsers = async () => {
@@ -60,6 +101,7 @@ export default class UserContainer extends Component {
 	}
 
 	render() {
+		console.log("THIS.STATE from USER CONTAINER RENDER", this.state);
 		return (
 			<React.Fragment>
 				<h3> UserContainer </h3>
@@ -67,7 +109,7 @@ export default class UserContainer extends Component {
 				{
 					this.state.mode === 'show'
 					&&
-					<UserShowPage />
+					<UserShowPage closeShowModal={this.closeShowModal} userToShowData={this.state.userToShowData}/>
 				}
 				<EditUserModal />
 			</React.Fragment>

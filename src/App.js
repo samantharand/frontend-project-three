@@ -13,7 +13,8 @@ export default class App extends Component {
     this.state = {
       loggedIn: false,
       message: '',
-      mode: 'Home'
+      mode: 'Home',
+      currentUser: ''
     }
   }
 
@@ -50,7 +51,8 @@ export default class App extends Component {
 
         this.setState({
           loggedIn: true,
-          mode: 'Home'
+          mode: 'Home',
+          currentUser: registerJson.data
         })
 
       }
@@ -79,7 +81,8 @@ export default class App extends Component {
 
         this.setState({
           loggedIn: true,
-          mode: 'Home'
+          mode: 'Home',
+          currentUser: loginJson.data
         })
 
       } else {
@@ -108,7 +111,8 @@ export default class App extends Component {
       console.log(logoutJson);
       if(logoutJson.status === 200) {
         this.setState({
-          loggedIn: false
+          loggedIn: false,
+          currentUser: ''
         })
       }
 
