@@ -75,9 +75,11 @@ export default class ArtworkContainer extends Component {
 			const artworksJson = await artworksResponse.json()
 			console.log('artworksJson', artworksJson);
 
-			this.setState({
-				artworks: artworksJson.data
-			})
+			if(artworksJson.status === 200) {		
+				this.setState({
+					artworks: artworksJson.data
+				})
+			}
 
 		} catch (error) {
 			console.error(error)
@@ -126,15 +128,16 @@ export default class ArtworkContainer extends Component {
 	}
 
 	updateArtwork = (updateInfo) => {
-		console.log("update info from updateArtwork", updateInfo);
-		console.log("update info data from updateArtwork", updateInfo.data);
+		// console.log("update info from updateArtwork", updateInfo);
+		// console.log("update info data from updateArtwork", updateInfo.data);
 		this.closeShowModal()
 		// find index of user that needs updating
 		const artworks = this.state.artworks
 		const indexOfArtworkBeingEdited = artworks.findIndex(artwork => artwork.id === updateInfo.data.id)
-		console.log('pre-reassign artworks[indexOfArtworkBeingEdited]', artworks[indexOfArtworkBeingEdited]);
+		// console.log('pre-reassign artworks[indexOfArtworkBeingEdited]', artworks[indexOfArtworkBeingEdited]);
 		artworks[indexOfArtworkBeingEdited] = updateInfo.data
-		console.log('artworks[indexOfArtworkBeingEdited]', artworks[indexOfArtworkBeingEdited]);
+		// console.log('artworks[indexOfArtworkBeingEdited]', artworks[indexOfArtworkBeingEdited]);
+		// console.log('ARTWORKS', artworks);
 		this.setState({
 			artworks: artworks
 		})
@@ -142,7 +145,7 @@ export default class ArtworkContainer extends Component {
 	}
 
 	render(){
-		console.log('this.state from artwork container', this.state);
+		console.log('this.state from artwork container', this.state.artworks);
 		console.log('artworkToShowData', this.state.artworkToShowData);
 		return (
 			<>

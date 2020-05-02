@@ -37,12 +37,12 @@ export default class EditArtModal extends Component {
 	}
 
 	handleSubmit = () => {
+		console.log(this.state);
 		this.props.editArtwork(this.state)
 		//this.hideModal()
 	}
 
 	render() {
-		console.log(this.props.artworkToShowData);
 		return (
 			<Modal trigger={<Button>Edit Artwork</Button>}>
 				<p>edit daaaa art :)</p>

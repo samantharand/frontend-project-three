@@ -22,8 +22,8 @@ export default class App extends Component {
   register = async (registerInfo) => {
     try {
       const url = process.env.REACT_APP_API_URL + '/users/register'
-      console.log(url);
-      console.log("pre - fetch");
+      // console.log(url);
+      // console.log("pre - fetch");
 
         const registerResponse = await fetch(url, {
           credentials: 'include',
@@ -34,13 +34,13 @@ export default class App extends Component {
           } 
         })
 
-      console.log("post - fetch");
+      // console.log("post - fetch");
 
-      console.log(registerResponse);
+      // console.log(registerResponse);
 
       const registerJson = await registerResponse.json()
 
-      console.log('REGISTERJSON', registerJson)
+      // console.log('REGISTERJSON', registerJson)
 
       if(registerJson.status == 401) {
 
@@ -77,7 +77,7 @@ export default class App extends Component {
       })
 
       const loginJson = await loginResponse.json()
-      console.log('LOGIN JSON', loginJson);
+      // console.log('LOGIN JSON', loginJson);
       if(loginJson.status === 201) {
 
         this.setState({
@@ -99,7 +99,7 @@ export default class App extends Component {
   }
 
   logout = async () => {
-    console.log('logout');
+    // console.log('logout');
     try {
       
       const url = process.env.REACT_APP_API_URL + '/users/logout'
@@ -109,7 +109,7 @@ export default class App extends Component {
       })
 
       const logoutJson = await logoutResponse.json()
-      console.log(logoutJson);
+      // console.log(logoutJson);
       if(logoutJson.status === 200) {
         this.setState({
           loggedIn: false,
@@ -144,7 +144,7 @@ export default class App extends Component {
       })
 
       const addArtJson = await addArtResponse.json()
-      console.log('ADD ART JSON FROM ADD ART', addArtJson);
+      // console.log('ADD ART JSON FROM ADD ART', addArtJson);
       
     } catch (error) {
       console.error(error)

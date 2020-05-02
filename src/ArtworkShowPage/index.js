@@ -12,9 +12,9 @@ export default class ArtworkShowPage extends Component {
 	}
 
 	componentDidMount() {
-		console.log('THIS.PROPS in ArtworkShowPage',this.props);
-		console.log('this.props.currentUser', this.props.currentUser);
-		console.log('this.props.artworkToShowData.artist', this.props.artworkToShowData.artist);
+		// console.log('THIS.PROPS in ArtworkShowPage',this.props);
+		// console.log('this.props.currentUser', this.props.currentUser);
+		// console.log('this.props.artworkToShowData.artist', this.props.artworkToShowData.artist);
 	}
 
 	editArtwork = async (editInfo) => {
@@ -23,7 +23,7 @@ export default class ArtworkShowPage extends Component {
 		try {
 
 			const url = process.env.REACT_APP_API_URL + '/artworks/' + this.props.artworkToShowData.id
-
+			console.log('URL from EDIT ARTWORK', url);
 			const editArtworkResponse = await fetch(url, {
 				credentials: 'include',
 				method: 'PUT',
