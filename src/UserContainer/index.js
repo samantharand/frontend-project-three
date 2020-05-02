@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import UserList from '../UserList'
+import EditUserModal from '../EditUserModal'
 
 export default class UserContainer extends Component {
 	constructor() {
@@ -45,6 +46,7 @@ export default class UserContainer extends Component {
 			<React.Fragment>
 				<h3> UserContainer </h3>
 				<UserList users={this.state.users}/>
+				<EditUserModal />
 			</React.Fragment>
 		)
 	}
