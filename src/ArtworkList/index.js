@@ -8,7 +8,10 @@ export default function ArtworkList(props) {
 		return (
 			<Card key={artwork.id}> 
 				<Card.Content>
-					<Card.Header className='fake-link'>
+					<Card.Header 
+						className='fake-link'
+						onClick={() => props.switchMode(artwork.id)}
+					>
 						{artwork.title} 
 					</Card.Header>
 					<Card.Meta>

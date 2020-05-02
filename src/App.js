@@ -185,7 +185,9 @@ export default class App extends Component {
           {
             this.state.mode === "Artwork"
             &&
-            <ArtworkContainer />
+            <ArtworkContainer 
+              currentUser={this.state.currentUser}
+            />
           }
           {
             this.state.mode === "Log In / Register"

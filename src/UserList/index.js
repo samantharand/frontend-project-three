@@ -7,7 +7,10 @@ export default function UserList(props) {
 		return (	
 			<Card key={user.id}> 
 				<Card.Content>
-					<Card.Header className='fake-link' onClick={() => props.switchMode(user.id)}>
+					<Card.Header 
+						className='fake-link' 
+						onClick={() => props.switchMode(user.id)}
+					>
 						{user.username}
 					</Card.Header>
 					<Card.Description>
