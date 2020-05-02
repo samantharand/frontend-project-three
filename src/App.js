@@ -14,7 +14,8 @@ export default class App extends Component {
       loggedIn: false,
       message: '',
       mode: 'Home',
-      currentUser: ''
+      currentUser: '',
+      adding: false
     }
   }
 
@@ -129,6 +130,33 @@ export default class App extends Component {
     })
   }
 
+  addArt = async (artToAdd) => {
+    console.log(artToAdd);
+    try {
+      const url = process.env.REACT_APP_API_URL + '/artworks/add'
+      const addArtResponse = await fetch(url, {
+        credentials: 'include',
+        method: 'POST',
+        body: JSON.stringify(artToAdd),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      const addArtJson = await addArtResponse.json()
+      console.log(addArtJson);
+      
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  // closeAddModal = () => {
+  //   this.setState({
+  //     adding: false
+  //   })
+  // }
+
   render() {
     return (
       <div className="App">
@@ -136,6 +164,8 @@ export default class App extends Component {
           logout={this.logout} 
           loggedIn={this.state.loggedIn}
           switchMode={this.switchMode}
+          toggleAdd={this.toggleAdd}
+          addArt={this.addArt}
         />
         
         <React.Fragment>

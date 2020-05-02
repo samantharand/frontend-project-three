@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import ArtworkList from '../ArtworkList'
 import NewArtworkForm from '../NewArtworkForm'
+import ArtworkList from '../ArtworkList'
+import Header from '../Header'
+
 
 export default class ArtworkContainer extends Component {
 	constructor() {
 		super()
 		this.state = {
-			artwork: [],
-			adding: false
+			artwork: []
 		}
 	}
 
@@ -36,44 +37,26 @@ export default class ArtworkContainer extends Component {
 		}
 	}
 
-	addArt = async (artToAdd) => {
-		console.log(artToAdd);
-		try {
-			const url = process.env.REACT_APP_API_URL + '/artworks/add'
-			const addArtResponse = await fetch(url, {
-				credentials: 'include',
-				method: 'POST',
-				body: JSON.stringify(artToAdd),
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			})
+	// addArt = async (artToAdd) => {
+	// 	console.log(artToAdd);
+	// 	try {
+	// 		const url = process.env.REACT_APP_API_URL + '/artworks/add'
+	// 		const addArtResponse = await fetch(url, {
+	// 			credentials: 'include',
+	// 			method: 'POST',
+	// 			body: JSON.stringify(artToAdd),
+	// 			headers: {
+	// 				'Content-Type': 'application/json'
+	// 			}
+	// 		})
 
-			const addArtJson = await addArtResponse.json()
-			console.log(addArtJson);
+	// 		const addArtJson = await addArtResponse.json()
+	// 		console.log(addArtJson);
 			
-		} catch (error) {
-			console.error(error)
-		}
-	}
-
-	closeAddModal = () => {
-		this.setState({
-			adding: false
-		})
-	}
-
-	switchState = () => {
-		if(this.adding) {
-			this.setState({
-				adding: false
-			})
-		} else {
-			this.setState({
-				adding: true
-			})
-		}
-	}
+	// 	} catch (error) {
+	// 		console.error(error)
+	// 	}
+	// }
 
 	render(){
 		console.log(this.state);
@@ -81,9 +64,9 @@ export default class ArtworkContainer extends Component {
 			<>
 				<p> ArtworkContainer </p>
 				{
-					this.state.adding
+					this.props.adding
 					&&
-					<NewArtworkForm addArt={this.addArt} adding={this.state.adding} closeAddModal={this.closeAddModal}/>
+					<NewArtworkForm open={true} addArt={this.addArt} closeAddModal={this.closeAddModal}/>
 				}
 				<ArtworkList artwork={this.state.artwork}/>
 			</>
