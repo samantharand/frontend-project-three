@@ -99,6 +99,10 @@ export default class UserContainer extends Component {
 	 	}
 	}
 
+	deleteUser = (deleteInfo) => {
+		console.log('deleteUser');
+	}
+
 	updateUser = (updateInfo) => {
 		console.log("update info from updateUser", updateInfo);
 		this.closeShowModal()
@@ -128,6 +132,7 @@ export default class UserContainer extends Component {
 						userToShowData={this.state.userToShowData}
 						currentUser={this.props.currentUser}
 						updateUser={this.updateUser}
+						deleteUser={this.deleteUser}
 					/>
 				}
 			</React.Fragment>
