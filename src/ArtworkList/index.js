@@ -1,4 +1,5 @@
 import React from 'react'
+import '../index.css'
 import { Card } from 'semantic-ui-react'
 
 export default function ArtworkList(props) {
@@ -7,7 +8,7 @@ export default function ArtworkList(props) {
 		return (
 			<Card key={artwork.id}> 
 				<Card.Content>
-					<Card.Header>
+					<Card.Header className='fake-link'>
 						{artwork.title} 
 					</Card.Header>
 					<Card.Meta>

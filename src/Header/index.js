@@ -38,7 +38,7 @@ export default class Header extends Component {
 						?
 						<React.Fragment>
 							<div>
-								<span className='fake-link' onClick={this.showModal}>addArt</span>
+								<span className='fake-link' onClick={this.showModal}>Add Art</span>
 								{
 									this.state.showModal
 									&&
