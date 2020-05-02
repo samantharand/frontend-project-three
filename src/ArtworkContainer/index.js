@@ -63,6 +63,18 @@ export default class ArtworkContainer extends Component {
 		})
 	}
 
+	switchState = () => {
+		if(this.adding) {
+			this.setState({
+				adding: false
+			})
+		} else {
+			this.setState({
+				adding: true
+			})
+		}
+	}
+
 	render(){
 		console.log(this.state);
 		return (

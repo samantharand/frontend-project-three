@@ -113,6 +113,8 @@ export default class UserContainer extends Component {
 			const deleteUserJson = await deleteUserResponse.json()
 			console.log(deleteUserJson);
 			
+			// ALSO NEED TO FETCH ALL ART AND DELETE IT WHERE ARTIST ID == USER ID
+
 			if(deleteUserJson.status === 200) {
 				this.setState({
 					users: this.state.users.filter(user => user.id !== deleteUserJson.id) 
@@ -138,6 +140,9 @@ export default class UserContainer extends Component {
 		console.log('indexOfUserBeingEdited', indexOfUserBeingEdited);
 		console.log('users[indexOfUserBeingEdited]', users[indexOfUserBeingEdited]);
 		users[indexOfUserBeingEdited] = updateInfo.data
+		console.log("THIS SHOULD BE UPDATED NOW");
+		console.log(this.state.users);
+		console.log("");
 		this.setState({
 			users: users
 		})

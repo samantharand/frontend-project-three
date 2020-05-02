@@ -53,10 +53,9 @@ export default class UserShowPage extends Component {
 					&&
 					<React.Fragment>
 						<EditUserModal 
-							currentUser={this.props.currentUser} 
+							userToShowData={this.props.userToShowData} 
 							editUser={this.editUser}
 						/>
-						<Button onClick={() => this.props.deleteUser(this.props.userToShowData)}>Delete Account</Button>
 					</React.Fragment>
 				}
 			</Modal>
@@ -64,3 +63,4 @@ export default class UserShowPage extends Component {
 	
 	}
 }
+						// <Button onClick={() => this.props.deleteUser(this.props.userToShowData)}>Delete Account</Button>

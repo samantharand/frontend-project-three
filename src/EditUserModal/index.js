@@ -6,11 +6,11 @@ export default class EditUserModal extends Component {
 		super(props)
 
 		this.state = {
-			username: this.props.currentUser.username,
-			email: this.props.currentUser.email,
-			age: this.props.currentUser.age,
-			location: this.props.currentUser.location,
-			bio: this.props.currentUser.bio,
+			username: this.props.userToShowData.username,
+			email: this.props.userToShowData.email,
+			age: this.props.userToShowData.age,
+			location: this.props.userToShowData.location,
+			bio: this.props.userToShowData.bio,
 			message: ''
 		}
 	}
@@ -39,6 +39,7 @@ export default class EditUserModal extends Component {
 
 	render() {
 		console.log("THIS DOT PROPSSSS in edit user", this.props);
+		console.log("this.state", this.state);
 		return (
 			<Modal trigger={<Button>edit</Button>} className='EditUserModal' closeIcon>
 				<h2> Edit Your Account </h2>
