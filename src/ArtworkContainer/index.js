@@ -90,10 +90,52 @@ export default class ArtworkContainer extends Component {
 
 	closeShowModal = () => {
 		this.switchMode()
-		// set idOfUserToShow to ''
-		// set mode to 'index'
+	}
 
-			// maybe call switch mode ???
+	deleteArtwork = async (deleteInfo) => {
+		console.log('deleteArtwork');
+		console.log('deleteInfo', deleteInfo.id);
+		const url = process.env.REACT_APP_API_URL + '/artworks/' + deleteInfo.id
+		console.log(url);
+		try {
+			const deleteArtworkResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'DELETE'
+			})
+
+			const deleteArtworkJson = await deleteArtworkResponse.json()
+			console.log(deleteArtworkJson);
+			
+			// ALSO NEED TO FETCH ALL ART AND DELETE IT WHERE ARTIST ID == USER ID
+
+			if(deleteArtworkJson.status === 200) {
+				this.setState({
+					artworks: this.state.artworks.filter(user => user.id !== deleteArtworkJson.id) 
+				})
+				this.props.logout()
+				this.closeShowModal()
+				this.getArtworks()
+			}
+
+		} catch (error) {
+
+			console.error(error)
+
+		}
+	}
+
+	updateArtwork = (updateInfo) => {
+		console.log("update info from updateArtwork", updateInfo);
+		this.closeShowModal()
+		// find index of user that needs updating
+		const artworks = this.state.artworks
+		const indexOfArtworkBeingEdited = artworks.findIndex(artwork => artwork.id === updateInfo.data.id)
+		artworks[indexOfArtworkBeingEdited] = updateInfo.data
+		
+		this.setState({
+			artworks: artworks
+		})
+		// need to change this.state.users ????
 	}
 
 	render(){
@@ -109,7 +151,9 @@ export default class ArtworkContainer extends Component {
 					<ArtworkShowPage 
 						closeShowModal={this.closeShowModal}
 						artworkToShowData={this.state.artworkToShowData}
-						currentUser={this.state.currentUser}
+						currentUser={this.props.currentUser}
+						updateArtwork={this.state.updateArtwork}
+						deleteArtwork={this.state.deleteArtwork}
 					/>
 				}
 			</>
