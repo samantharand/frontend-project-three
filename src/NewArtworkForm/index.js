@@ -71,11 +71,12 @@ export default class NewArtworkForm extends Component {
 						/>
 					</Form.Field>
 					<Label> Inspiration </Label>
-					<Form.Field 
-						control='textarea' 
-						rows='3' 
+					<Form.TextArea 
+						type='text' 
+						name='inspiration' 
 						placeholder='What inspired this?!' 
 						value={this.state.value}
+						onChange={this.handleChange}
 					/>
 					<Form.Field>
 						<Label>Date Made</Label>

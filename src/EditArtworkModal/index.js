@@ -6,16 +6,28 @@ export default class EditArtModal extends Component {
 		super()
 
 		this.state ={
-			// title: this.props.artworkToShowData.title,
-			// image: this.props.artworkToShowData.image,
-			// medium: this.props.artworkToShowData.medium,
-			// inspiration: this.props.artworkToShowData.inspiration,
-			// date_made: this.props.artworkToShowData.date_made
+			title: '',
+			image: '',
+			medium: '',
+			inspiration: '',
+			date_made: ''
 		}
 	}
 
 	componentDidMount() {
 		console.log('THIS DOTTT PROPS IN EDIT ART MODEL',this.props);
+
+		{
+			this.props.artworkToShowData !== ""
+			&&
+			this.setState({
+				title: this.props.artworkToShowData.title,
+				image: this.props.artworkToShowData.image,
+				medium: this.props.artworkToShowData.medium,
+				inspiration: this.props.artworkToShowData.inspiration,
+				date_made: this.props.artworkToShowData.date_made
+			})
+		}
 	}
 
 	handleChange = (event) => {
@@ -30,6 +42,7 @@ export default class EditArtModal extends Component {
 	}
 
 	render() {
+		console.log(this.props.artworkToShowData);
 		return (
 			<Modal trigger={<Button>Edit Artwork</Button>}>
 				<p>add daaaa art :)</p>
