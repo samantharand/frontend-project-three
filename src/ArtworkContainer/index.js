@@ -39,7 +39,7 @@ export default class ArtworkContainer extends Component {
 		console.log("ID FROM getArtworkToShowInfo",id);
 		try {
 
-			const url = process.env.REACT_APP_API_URL + '/artwork/' + id
+			const url = process.env.REACT_APP_API_URL + '/artworks/' + id
 
 			const showArtworkResponse = await fetch(url, {
 				credentials: 'include',
@@ -97,7 +97,8 @@ export default class ArtworkContainer extends Component {
 	}
 
 	render(){
-		console.log(this.state);
+		console.log('this.state from artwork container', this.state);
+		console.log('artworkToShowData', this.state.artworkToShowData);
 		return (
 			<>
 				<p> ArtworkContainer </p>

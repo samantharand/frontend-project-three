@@ -12,7 +12,7 @@ export default class ArtworkShowPage extends Component {
 	render() {
 		console.log(this.props);
 		return (
-			<Modal>
+			<Modal open={true} closeIcon onClose={this.props.closeShowModal}>
 				<h3>{this.props.artworkToShowData.title}</h3>
 			</Modal>
 		)
