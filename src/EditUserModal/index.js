@@ -2,16 +2,15 @@ import React, { Component } from 'react'
 import { Modal, Form, Button, Label } from 'semantic-ui-react'
 
 export default class EditUserModal extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 
 		this.state = {
-			username: '',
-			email: '',
-			password: '',
-			age: '',
-			location: '',
-			bio: '',
+			username: this.props.currentUser.username,
+			email: this.props.currentUser.email,
+			age: this.props.currentUser.age,
+			location: this.props.currentUser.location,
+			bio: this.props.currentUser.bio,
 			message: ''
 		}
 	}
@@ -22,17 +21,33 @@ export default class EditUserModal extends Component {
 		// took break fromthis at 704 to make user show page!!
 	}
 
+	handleChange = (event) => {
+		this.setState({
+			[event.target.name]: event.target.value
+		})
+	}
+
+	handleSubmit = (event) => {
+		event.preventDefault()
+		console.log("Handle Submit do be getting called tho");
+		console.log(this.state);
+		console.log('edit user being called RIGHT under this');
+		this.props.editUser(this.state)
+
+	}
+				// <p> {this.state.message} </p>
+
 	render() {
+		console.log("THIS DOT PROPSSSS in edit user", this.props);
 		return (
 			<Modal trigger={<Button>edit</Button>} className='EditUserModal' closeIcon>
 				<h2> Edit Your Account </h2>
-				<p> {this.state.message} </p>
 				<Form onSubmit={this.handleSubmit}>
 					<Label> username </Label>
 					<Form.Input 
 						name='username'
 						type='text'
-						value={this.state.value}
+						value={this.state.username}
 						placeholder='username :)'
 						onChange={this.handleChange}
 					/>			
@@ -40,26 +55,17 @@ export default class EditUserModal extends Component {
 					<Form.Input 
 						name='email'
 						type='text'
-						value={this.state.value}
+						value={this.state.email}
 						placeholder='email :)'
 						onChange={this.handleChange}
 					/>
-					<Label> password </Label>
-					<Form.Input 
-						name='password'
-						type='password'
-						value={this.state.value}
-						placeholder='password :)'
-						onChange={this.handleChange}
-					/>
-				
 
 					<h3> fun stuff </h3>
 					<Label> age </Label>
 					<Form.Input 
 						name='age'
 						type='number'
-						value={this.state.value}
+						value={this.state.age}
 						placeholder='age :)'
 						onChange={this.handleChange}
 					/>
@@ -67,7 +73,7 @@ export default class EditUserModal extends Component {
 					<Form.Input 
 						name='location'
 						type='text'
-						value={this.state.value}
+						value={this.state.location}
 						placeholder='location :)'
 						onChange={this.handleChange}
 					/>
@@ -75,11 +81,11 @@ export default class EditUserModal extends Component {
 					<Form.TextArea 
 						name='bio'
 						type='text'
-						value={this.state.value}
+						value={this.state.bio}
 						placeholder='bio :)'
 						onChange={this.handleChange}
 					/>
-					<Button type='submit'> {this.state.action} </Button>
+					<Button type='submit'> Submit Edits </Button>
 				</Form>
 			</Modal>
 		)

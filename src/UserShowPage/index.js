@@ -12,6 +12,31 @@ export default class UserShowPage extends Component {
 		}
 	}
 
+	editUser = async (editInfo) => {
+		console.log('edit info from edit user in user show', editInfo);
+		try {
+			
+			console.log('editinfo from edit user in UserShowPage', editInfo);
+			const url = process.env.REACT_APP_API_URL + '/users/' + this.props.currentUser.id
+
+			const editUserResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'PUT',
+				body: JSON.stringify(editInfo),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const editUserJson = await editUserResponse.json()
+			console.log("Edit User Json", editUserJson);
+
+			this.props.closeShowModal()
+		} catch (error) {
+			console.error(error)
+		}
+
+	}
 
 	render() {
 		console.log("CURRENT USER from UserShowPage", this.props.currentUser);
@@ -22,7 +47,10 @@ export default class UserShowPage extends Component {
 				{
 					this.props.currentUser.id === this.props.userToShowData.id
 					&&
-					<EditUserModal />
+					<EditUserModal 
+						currentUser={this.props.currentUser} 
+						editUser={this.editUser}
+					/>
 				}
 			</Modal>
 		)
