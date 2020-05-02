@@ -16,7 +16,7 @@ export default class UserShowPage extends Component {
 		console.log('edit info from edit user in user show', editInfo);
 		try {
 			
-			console.log('editinfo from edit user in UserShowPage', editInfo);
+			// console.log('editinfo from edit user in UserShowPage', editInfo);
 			const url = process.env.REACT_APP_API_URL + '/users/' + this.props.currentUser.id
 
 			const editUserResponse = await fetch(url, {
@@ -30,8 +30,11 @@ export default class UserShowPage extends Component {
 
 			const editUserJson = await editUserResponse.json()
 			console.log("Edit User Json", editUserJson);
-
-			this.props.closeShowModal()
+			if(editUserJson.status === 201) {
+				this.props.updateUser(editUserJson)
+				// this.props.userToShowData = editUserJson.data
+				// call updateUser from parent???? 
+			}
 		} catch (error) {
 			console.error(error)
 		}

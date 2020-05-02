@@ -99,6 +99,21 @@ export default class UserContainer extends Component {
 	 	}
 	}
 
+	updateUser = (updateInfo) => {
+		console.log("update info from updateUser", updateInfo);
+		this.closeShowModal()
+		// find index of user that needs updating
+		const users = this.state.users
+		const indexOfUserBeingEdited = users.findIndex(user => user.id === updateInfo.data.id)
+		console.log('indexOfUserBeingEdited', indexOfUserBeingEdited);
+		console.log('users[indexOfUserBeingEdited]', users[indexOfUserBeingEdited]);
+		users[indexOfUserBeingEdited] = updateInfo.data
+		this.setState({
+			users: users
+		})
+		// need to change this.state.users ????
+	}
+
 	render() {
 		console.log("THIS.STATE from USER CONTAINER RENDER", this.state);
 		return (
@@ -112,6 +127,7 @@ export default class UserContainer extends Component {
 						closeShowModal={this.closeShowModal} 
 						userToShowData={this.state.userToShowData}
 						currentUser={this.props.currentUser}
+						updateUser={this.updateUser}
 					/>
 				}
 			</React.Fragment>
