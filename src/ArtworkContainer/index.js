@@ -8,14 +8,14 @@ export default class ArtworkContainer extends Component {
 	constructor() {
 		super()
 		this.state = {
-			artwork: [],
+			artworks: [],
 			mode: 'index',
 			artworkToShowData: ''
 		}
 	}
 
 	componentDidMount() {
-		this.getArt()
+		this.getArtworks()
 	}
 
 	switchMode = (id) => {
@@ -63,7 +63,7 @@ export default class ArtworkContainer extends Component {
 		}
 	}
 
-	getArt = async () => {
+	getArtworks = async () => {
 		try {
 			
 			const url = process.env.REACT_APP_API_URL + '/artworks/all'
@@ -76,7 +76,7 @@ export default class ArtworkContainer extends Component {
 			console.log('artworksJson', artworksJson);
 
 			this.setState({
-				artwork: artworksJson.data
+				artworks: artworksJson.data
 			})
 
 		} catch (error) {
@@ -89,6 +89,7 @@ export default class ArtworkContainer extends Component {
 	// }
 
 	closeShowModal = () => {
+		console.log('this.closeShowModal called');
 		this.switchMode()
 	}
 
@@ -108,14 +109,14 @@ export default class ArtworkContainer extends Component {
 			
 			// ALSO NEED TO FETCH ALL ART AND DELETE IT WHERE ARTIST ID == USER ID
 
-			if(deleteArtworkJson.status === 200) {
+			if(deleteArtworkJson.status === 201) {
 				this.setState({
-					artworks: this.state.artworks.filter(user => user.id !== deleteArtworkJson.id) 
+					artworks: this.state.artworks.filter(artwork => artwork.id !== deleteArtworkJson.id) 
 				})
-				this.props.logout()
 				this.closeShowModal()
 				this.getArtworks()
 			}
+			console.log('mode called from deleteArtwork',this.state.mode);
 
 		} catch (error) {
 
@@ -144,7 +145,7 @@ export default class ArtworkContainer extends Component {
 		return (
 			<>
 				<p> ArtworkContainer </p>
-				<ArtworkList switchMode={this.switchMode} artwork={this.state.artwork}/>
+				<ArtworkList switchMode={this.switchMode} artworks={this.state.artworks}/>
 				{
 					this.state.mode === 'show'
 					&&
@@ -152,8 +153,8 @@ export default class ArtworkContainer extends Component {
 						closeShowModal={this.closeShowModal}
 						artworkToShowData={this.state.artworkToShowData}
 						currentUser={this.props.currentUser}
-						updateArtwork={this.state.updateArtwork}
-						deleteArtwork={this.state.deleteArtwork}
+						updateArtwork={this.updateArtwork}
+						deleteArtwork={this.deleteArtwork}
 					/>
 				}
 			</>

@@ -27,11 +27,16 @@ export default class ArtworkShowPage extends Component {
 					this.props.artworkToShowData.artist !== undefined
 					&&
 					<Modal open={true} closeIcon onClose={this.props.closeShowModal}>
-						<h3>{this.props.artworkToShowData.artist.id} // {this.props.currentUser.id}</h3>
+						<h3>{this.props.artworkToShowData.title}</h3>
 						{
 							this.props.currentUser.id === this.props.artworkToShowData.artist.id
 							&&
-							<p>oh hell ya dis ur painting nice work bitch</p>
+							<React.Fragment>
+								<Button 
+									onClick={() => this.props.deleteArtwork(this.props.artworkToShowData)}>
+									Delete Artwork
+								</Button>
+							</React.Fragment>
 						}
 					</Modal>
 				}	

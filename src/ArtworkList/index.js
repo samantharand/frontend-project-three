@@ -3,8 +3,8 @@ import '../index.css'
 import { Card } from 'semantic-ui-react'
 
 export default function ArtworkList(props) {
-	console.log('PROPS.artwork', props.artwork);
-	const listedArtwork = props.artwork.map(artwork => {
+	console.log('PROPS.artworks', props.artworks);
+	const listedArtwork = props.artworks.map(artwork => {
 		return (
 			<Card key={artwork.id}> 
 				<Card.Content>
