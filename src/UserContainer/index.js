@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import UserList from '../UserList'
 import UserShowPage from '../UserShowPage'
-import EditUserModal from '../EditUserModal'
 
 export default class UserContainer extends Component {
 	constructor() {
@@ -109,9 +108,12 @@ export default class UserContainer extends Component {
 				{
 					this.state.mode === 'show'
 					&&
-					<UserShowPage closeShowModal={this.closeShowModal} userToShowData={this.state.userToShowData}/>
+					<UserShowPage 
+						closeShowModal={this.closeShowModal} 
+						userToShowData={this.state.userToShowData}
+						currentUser={this.props.currentUser}
+					/>
 				}
-				<EditUserModal />
 			</React.Fragment>
 		)
 	}
