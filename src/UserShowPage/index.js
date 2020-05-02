@@ -56,7 +56,7 @@ export default class UserShowPage extends Component {
 							currentUser={this.props.currentUser} 
 							editUser={this.editUser}
 						/>
-						<Button onClick={this.props.deleteUser}>Delete Account</Button>
+						<Button onClick={() => this.props.deleteUser(this.props.userToShowData)}>Delete Account</Button>
 					</React.Fragment>
 				}
 			</Modal>

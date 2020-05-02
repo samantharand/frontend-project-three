@@ -99,8 +99,34 @@ export default class UserContainer extends Component {
 	 	}
 	}
 
-	deleteUser = (deleteInfo) => {
+	deleteUser = async (deleteInfo) => {
 		console.log('deleteUser');
+		console.log('deleteInfo', deleteInfo.id);
+		const url = process.env.REACT_APP_API_URL + '/users/' + deleteInfo.id
+		console.log(url);
+		try {
+			const deleteUserResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'DELETE'
+			})
+
+			const deleteUserJson = await deleteUserResponse.json()
+			console.log(deleteUserJson);
+			
+			if(deleteUserJson.status === 200) {
+				this.setState({
+					users: this.state.users.filter(user => user.id !== deleteUserJson.id) 
+				})
+				this.props.logout()
+				this.closeShowModal()
+				this.getUsers()
+			}
+
+		} catch (error) {
+
+			console.error(error)
+
+		}
 	}
 
 	updateUser = (updateInfo) => {

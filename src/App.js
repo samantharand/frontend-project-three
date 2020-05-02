@@ -148,7 +148,10 @@ export default class App extends Component {
           {
             this.state.mode === "User"
             &&
-            <UserContainer currentUser={this.state.currentUser}/>
+            <UserContainer 
+              currentUser={this.state.currentUser}
+              logout={this.logout}
+            />
           }
           {
             this.state.mode === "Artwork"
