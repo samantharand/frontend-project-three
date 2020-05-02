@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import UserList from '../UserList'
+import UserShowPage from '../UserShowPage'
 import EditUserModal from '../EditUserModal'
 
 export default class UserContainer extends Component {
@@ -7,13 +8,30 @@ export default class UserContainer extends Component {
 		super()
 
 		this.state ={
-			users: []
+			users: [],
+			mode: 'index'
 		}
 	}
 
 	componentDidMount() {
 		console.log('componentDidMount');
 		this.getUsers()
+	}
+
+	switchMode = (id) => {
+		console.log("SWITCH MODE in USER CONTAINER");
+		// console.log(event.currentTarget);
+		console.log(id);
+
+		if(this.state.mode === 'index') {
+			this.setState({
+				mode: 'show'
+			})
+		} else {
+			this.setState({
+				mode: 'index'
+			})
+		}
 	}
 
 	getUsers = async () => {
@@ -45,7 +63,12 @@ export default class UserContainer extends Component {
 		return (
 			<React.Fragment>
 				<h3> UserContainer </h3>
-				<UserList users={this.state.users}/>
+				<UserList switchMode={this.switchMode} users={this.state.users}/>
+				{
+					this.state.mode === 'show'
+					&&
+					<UserShowPage />
+				}
 				<EditUserModal />
 			</React.Fragment>
 		)

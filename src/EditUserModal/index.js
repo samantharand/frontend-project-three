@@ -4,7 +4,7 @@ import { Modal, Form, Button, Label } from 'semantic-ui-react'
 export default class EditUserModal extends Component {
 	constructor() {
 		super()
-		
+
 		this.state = {
 			username: '',
 			email: '',
@@ -12,15 +12,21 @@ export default class EditUserModal extends Component {
 			age: '',
 			location: '',
 			bio: '',
-			action: 'Login'
+			message: ''
 		}
 	}
 
-				//<p> {this.props.message} </p>
+	componentDidMount() {
+		// need to get the current user so we can populate the stuff
+		// this iwll be on the users show page, so maybe easier to do ?? 
+		// took break fromthis at 704 to make user show page!!
+	}
+
 	render() {
 		return (
-			<Modal className='EditUserModal' open={true}>
+			<Modal trigger={<Button>edit</Button>} className='EditUserModal' closeIcon>
 				<h2> Edit Your Account </h2>
+				<p> {this.state.message} </p>
 				<Form onSubmit={this.handleSubmit}>
 					<Label> username </Label>
 					<Form.Input 

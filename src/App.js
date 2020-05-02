@@ -74,13 +74,14 @@ export default class App extends Component {
       })
 
       const loginJson = await loginResponse.json()
-      console.log(loginJson);
+      console.log('LOGIN JSON', loginJson);
       if(loginJson.status === 201) {
-        console.log("HIIII ");
+
         this.setState({
           loggedIn: true,
           mode: 'Home'
         })
+
       } else {
         console.log('ughslkdfj???/');
         this.setState({
