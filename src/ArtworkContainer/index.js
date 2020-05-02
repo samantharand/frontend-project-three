@@ -144,7 +144,6 @@ export default class ArtworkContainer extends Component {
 		console.log('artworkToShowData', this.state.artworkToShowData);
 		return (
 			<>
-				<p> ArtworkContainer </p>
 				<ArtworkList switchMode={this.switchMode} artworks={this.state.artworks}/>
 				{
 					this.state.mode === 'show'

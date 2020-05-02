@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Modal, Button } from 'semantic-ui-react'
+import EditArtModal from '../EditArtworkModal'
 
 
 export default class ArtworkShowPage extends Component {
@@ -32,6 +33,10 @@ export default class ArtworkShowPage extends Component {
 							this.props.currentUser.id === this.props.artworkToShowData.artist.id
 							&&
 							<React.Fragment>
+								<EditArtModal 
+									artworkToShowData={this.props.artworkToShowData}
+									editArtwork={this.editArtwork}
+								/>
 								<Button 
 									onClick={() => this.props.deleteArtwork(this.props.artworkToShowData)}>
 									Delete Artwork
