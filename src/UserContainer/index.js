@@ -137,12 +137,12 @@ export default class UserContainer extends Component {
 		// find index of user that needs updating
 		const users = this.state.users
 		const indexOfUserBeingEdited = users.findIndex(user => user.id === updateInfo.data.id)
-		console.log('indexOfUserBeingEdited', indexOfUserBeingEdited);
-		console.log('users[indexOfUserBeingEdited]', users[indexOfUserBeingEdited]);
+		// console.log('indexOfUserBeingEdited', indexOfUserBeingEdited);
+		// console.log('users[indexOfUserBeingEdited]', users[indexOfUserBeingEdited]);
 		users[indexOfUserBeingEdited] = updateInfo.data
-		console.log("THIS SHOULD BE UPDATED NOW");
-		console.log(this.state.users);
-		console.log("");
+		// console.log("THIS SHOULD BE UPDATED NOW");
+		// console.log(this.state.users);
+		// console.log("");
 		this.setState({
 			users: users
 		})

@@ -127,12 +127,14 @@ export default class ArtworkContainer extends Component {
 
 	updateArtwork = (updateInfo) => {
 		console.log("update info from updateArtwork", updateInfo);
+		console.log("update info data from updateArtwork", updateInfo.data);
 		this.closeShowModal()
 		// find index of user that needs updating
 		const artworks = this.state.artworks
 		const indexOfArtworkBeingEdited = artworks.findIndex(artwork => artwork.id === updateInfo.data.id)
+		console.log('pre-reassign artworks[indexOfArtworkBeingEdited]', artworks[indexOfArtworkBeingEdited]);
 		artworks[indexOfArtworkBeingEdited] = updateInfo.data
-		
+		console.log('artworks[indexOfArtworkBeingEdited]', artworks[indexOfArtworkBeingEdited]);
 		this.setState({
 			artworks: artworks
 		})

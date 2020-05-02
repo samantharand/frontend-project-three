@@ -37,15 +37,15 @@ export default class EditArtModal extends Component {
 	}
 
 	handleSubmit = () => {
-		this.props.addArt(this.state)
-		this.hideModal()
+		this.props.editArtwork(this.state)
+		//this.hideModal()
 	}
 
 	render() {
 		console.log(this.props.artworkToShowData);
 		return (
 			<Modal trigger={<Button>Edit Artwork</Button>}>
-				<p>add daaaa art :)</p>
+				<p>edit daaaa art :)</p>
 				<Form onSubmit={this.handleSubmit}>
 					<Form.Field>
 						<Label>Title</Label>
@@ -81,11 +81,12 @@ export default class EditArtModal extends Component {
 						/>
 					</Form.Field>
 					<Label> Inspiration </Label>
-					<Form.Field 
-						control='textarea' 
-						rows='3' 
+					<Form.TextArea 
+						type='text' 
+						name='inspiration' 
 						placeholder='What inspired this?!' 
-						value={this.state.value}
+						value={this.state.inspiration}
+						onChange={this.handleChange}
 					/>
 					<Form.Field>
 						<Label>Date Made</Label>

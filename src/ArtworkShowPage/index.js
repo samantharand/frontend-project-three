@@ -18,7 +18,33 @@ export default class ArtworkShowPage extends Component {
 	}
 
 	editArtwork = async (editInfo) => {
-		console.log('edit artwork called');
+		console.log("EDIT INFO", editInfo);
+		console.log('ARTWORK TO SHOW DATA', this.props.artworkToShowData);
+		try {
+
+			const url = process.env.REACT_APP_API_URL + '/artworks/' + this.props.artworkToShowData.id
+
+			const editArtworkResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'PUT',
+				body: JSON.stringify(editInfo),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const editArtworkJson = await editArtworkResponse.json()
+			console.log('editArtworkJson',editArtworkJson);
+
+			if(editArtworkJson.status === 201) {
+				this.props.updateArtwork(editArtworkJson)
+			}
+	
+		} catch (error) {
+
+			console.error(error)
+
+		}
 	}
 
 	render() {
