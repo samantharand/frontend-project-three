@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal, Button, Card } from 'semantic-ui-react'
+import { Modal, Button, Card, Image } from 'semantic-ui-react'
 import EditUserModal from '../EditUserModal'
 import ArtworkList from '../ArtworkList'
 
@@ -67,11 +67,25 @@ export default class UserShowPage extends Component {
 		if(this.props.userToShowArtworks) {
 			userArtworkCard = this.props.userToShowArtworks.map(artwork => {
 				return (
-					<Card key={artwork.id}>
+					<Card key={artwork.id}> 
 						<Card.Content>
-							<Card.Header>
-								{artwork.title}
+							<div className="imageThumbnail">
+								<Image 
+									className='fake-link'
+									src={artwork.image}
+								/>
+							</div>
+							<Card.Header 
+								className='fake-link'
+							>
+								{artwork.title} 
 							</Card.Header>
+							<Card.Meta>
+								<strong>Medium:</strong> {artwork.medium} 
+							</Card.Meta>
+							<Card.Description>
+								<strong>By:</strong> {artwork.artist.username.toUpperCase()} 
+							</Card.Description>
 						</Card.Content>
 					</Card>
 				)

@@ -26,6 +26,19 @@ span {
   padding: 4px;
 }
 
+
+.imageThumbnail {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+
+}
+
 Form {
 	width: 50%;
 	margin: 0 auto;

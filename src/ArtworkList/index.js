@@ -1,6 +1,6 @@
 import React from 'react'
 import '../index.css'
-import { Card } from 'semantic-ui-react'
+import { Card, Image } from 'semantic-ui-react'
 
 export default function ArtworkList(props) {
 	console.log('PROPS.artworks in ArtworkList', props.artworks);
@@ -8,6 +8,13 @@ export default function ArtworkList(props) {
 		return (
 			<Card key={artwork.id}> 
 				<Card.Content>
+					<div className="imageThumbnail">
+						<Image 
+							onClick={() => props.switchMode(artwork.id)} 
+							className='fake-link'
+							src={artwork.image}
+						/>
+					</div>
 					<Card.Header 
 						className='fake-link'
 						onClick={() => props.switchMode(artwork.id)}
@@ -15,10 +22,10 @@ export default function ArtworkList(props) {
 						{artwork.title} 
 					</Card.Header>
 					<Card.Meta>
-						{artwork.medium} 
+						<strong>Medium:</strong> {artwork.medium} 
 					</Card.Meta>
 					<Card.Description>
-						{artwork.artist.username} 
+						<strong>By:</strong> {artwork.artist.username.toUpperCase()} 
 					</Card.Description>
 				</Card.Content>
 			</Card>
