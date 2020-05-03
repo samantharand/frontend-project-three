@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Modal, Button } from 'semantic-ui-react'
+import { Modal, Button, Card } from 'semantic-ui-react'
 import EditUserModal from '../EditUserModal'
+import ArtworkList from '../ArtworkList'
 
 
 export default class UserShowPage extends Component {
@@ -41,13 +42,46 @@ export default class UserShowPage extends Component {
 
 	}
 
+	// listCards = () => {
+	// 	if(this.props.userToShowArtworks) {
+	// 		const userArtworkGrid = this.props.userToShowArtworks.map(artwork => {
+	// 			return (
+	// 				<Card key={artwork.id}>
+	// 					<Card.Content>
+	// 						<Card.Header>
+	// 							{artwork.title}
+	// 						</Card.Header>
+	// 					</Card.Content>
+	// 				</Card>
+	// 			)
+	// 		})
+	// 	}
+	// }
+
 	render() {
 		console.log("CURRENT USER from UserShowPage", this.props.currentUser);
 		console.log("this.props.userToShowData", this.props.userToShowData);
 		console.log("userToShowArtworks in USER SHOW PAAAge", this.props.userToShowArtworks);
+		if(this.props.userToShowArtworks) {
+			const userArtworkCard = this.props.userToShowArtworks.map(artwork => {
+				return (
+					<Card key={artwork.id}>
+						<Card.Content>
+							<Card.Header>
+								{artwork.title}
+							</Card.Header>
+						</Card.Content>
+					</Card>
+				)
+			})
+		}
 		return (
+			this.props.userToShowArtworks !== []
+			&&
 			<Modal closeIcon onClose={this.props.closeShowModal} open={true}>
 				<h3>{this.props.userToShowData.username}</h3>
+				<Card.Group> </Card.Group>
+			
 				{
 					this.props.currentUser.id === this.props.userToShowData.id
 					&&
@@ -63,4 +97,5 @@ export default class UserShowPage extends Component {
 	
 	}
 }
+				// <ArtworkList artworks={this.props.userToShowArtworks}/>
 						// <Button onClick={() => this.props.deleteUser(this.props.userToShowData)}>Delete Account</Button>

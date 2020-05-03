@@ -8,6 +8,7 @@ export default class UserContainer extends Component {
 
 		this.state ={
 			users: [],
+			allArtworksByUsers: [],
 			mode: 'index',
 			userToShowData: '',
 			userToShowArtworks: ''
@@ -17,6 +18,7 @@ export default class UserContainer extends Component {
 	componentDidMount() {
 		console.log('componentDidMount');
 		this.getUsers()
+		// try to get usertoshowartworks here !! -- makes it so data is preloaded when we click the user show page
 	}
 
 	switchMode = (id) => {
@@ -26,7 +28,7 @@ export default class UserContainer extends Component {
 
 		if(this.state.mode === 'index') {
 
-			this.getUserToShowInfo(id)
+			//this.getUserToShowInfo(id)
 
 			this.setState({
 				mode: 'show'
@@ -41,7 +43,7 @@ export default class UserContainer extends Component {
 	}
 
 	getUserToShowInfo = async (id) => {
-		console.log("ID FROM getUserToShowInfo",id);
+		// console.log("ID FROM getUserToShowInfo",id);
 		try {
 
 			const url = process.env.REACT_APP_API_URL + '/users/' + id
@@ -54,14 +56,43 @@ export default class UserContainer extends Component {
 				}
 			})
 
-			console.log('showUserResponse', showUserResponse);
+			// console.log('showUserResponse', showUserResponse);
 
 			const showUserJson = await showUserResponse.json()
 			console.log('showUserJson !!!!!!!!!', showUserJson);
-
+			let allArtworksByUsers = this.state.allArtworksByUsers
+			allArtworksByUsers.push(showUserJson.artworks)
 			this.setState({
 				userToShowData: showUserJson.data,
 				userToShowArtworks: showUserJson.artworks
+			})
+			
+		} catch (error) {
+			console.error(error)
+		}
+	}
+
+	getAllArtworkByUsers = async (id) => {
+		try {
+
+			const url = process.env.REACT_APP_API_URL + '/users/' + id
+
+			const showUserResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			// console.log('showUserResponse', showUserResponse);
+
+			const showUserJson = await showUserResponse.json()
+			console.log('showUserJson !!!!!!!!!', showUserJson);
+			let allArtworksByUsers = this.state.allArtworksByUsers
+			allArtworksByUsers.push(showUserJson.artworks)
+			this.setState({
+				allArtworksByUsers: allArtworksByUsers
 			})
 			
 		} catch (error) {
@@ -79,7 +110,7 @@ export default class UserContainer extends Component {
 
 	getUsers = async () => {
 		try {
-	
+			console.log('GET USERS CALED !!!!!!!');
 			const url = process.env.REACT_APP_API_URL + '/users/all'
 
 			const usersResponse = await fetch(url, {
@@ -88,11 +119,16 @@ export default class UserContainer extends Component {
 
 			const usersJson = await usersResponse.json()
 			console.log('USER JSONNNN', usersJson);
+			console.log('USER JSONNNN[9]', usersJson.data[9]);
 
 			if(usersJson.status === 200) {
 				this.setState({
 					users: usersJson.data
 				})
+			}
+
+			for(let i = 0; i < this.state.users.length; i++){
+				this.getAllArtworkByUsers(this.state.users[i].id)
 			}
 
 		} catch (error) {
