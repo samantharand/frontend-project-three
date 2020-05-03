@@ -9,7 +9,8 @@ export default class UserContainer extends Component {
 		this.state ={
 			users: [],
 			mode: 'index',
-			userToShowData: ''
+			userToShowData: '',
+			userToShowArtworks: ''
 		}
 	}
 
@@ -33,7 +34,8 @@ export default class UserContainer extends Component {
 		} else {
 			this.setState({
 				mode: 'index',
-				userToShowData: ''
+				userToShowData: '',
+				userToShowArtworks: ''
 			})
 		}
 	}
@@ -55,10 +57,11 @@ export default class UserContainer extends Component {
 			console.log('showUserResponse', showUserResponse);
 
 			const showUserJson = await showUserResponse.json()
-			console.log('showUserJson', showUserJson);
+			console.log('showUserJson !!!!!!!!!', showUserJson);
 
 			this.setState({
-				userToShowData: showUserJson.data
+				userToShowData: showUserJson.data,
+				userToShowArtworks: showUserJson.artworks
 			})
 			
 		} catch (error) {
@@ -161,6 +164,7 @@ export default class UserContainer extends Component {
 					<UserShowPage 
 						closeShowModal={this.closeShowModal} 
 						userToShowData={this.state.userToShowData}
+						userToShowArtworks={this.state.userToShowArtworks}
 						currentUser={this.props.currentUser}
 						updateUser={this.updateUser}
 						deleteUser={this.deleteUser}

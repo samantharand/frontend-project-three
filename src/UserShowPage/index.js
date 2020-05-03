@@ -44,7 +44,7 @@ export default class UserShowPage extends Component {
 	render() {
 		console.log("CURRENT USER from UserShowPage", this.props.currentUser);
 		console.log("this.props.userToShowData", this.props.userToShowData);
-		
+		console.log("userToShowArtworks in USER SHOW PAAAge", this.props.userToShowArtworks);
 		return (
 			<Modal closeIcon onClose={this.props.closeShowModal} open={true}>
 				<h3>{this.props.userToShowData.username}</h3>

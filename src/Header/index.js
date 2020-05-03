@@ -45,6 +45,7 @@ export default class Header extends Component {
 									<Modal 
 										open={true}
 										closeIcon
+										onSubmit={this.showModal}
 										onClose={this.showModal}
 									> 
 										<NewArtworkForm addArt={this.props.addArt}/> 

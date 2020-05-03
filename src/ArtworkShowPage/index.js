@@ -55,7 +55,10 @@ export default class ArtworkShowPage extends Component {
 					&&
 					<Modal open={true} closeIcon onClose={this.props.closeShowModal}>
 						<h3>{this.props.artworkToShowData.title}</h3>
+						<img width='300px' src={this.props.artworkToShowData.image} />
+						<p>{this.props.artworkToShowData.medium}</p>
 						<p>{this.props.artworkToShowData.inspiration}</p>
+						<p>{this.props.artworkToShowData.date_made}</p>
 						{
 							this.props.currentUser.id === this.props.artworkToShowData.artist.id
 							&&
