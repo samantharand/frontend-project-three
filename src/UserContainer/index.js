@@ -28,7 +28,7 @@ export default class UserContainer extends Component {
 
 		if(this.state.mode === 'index') {
 
-			//this.getUserToShowInfo(id)
+			this.getUserToShowInfo(id)
 
 			this.setState({
 				mode: 'show'
@@ -60,11 +60,21 @@ export default class UserContainer extends Component {
 
 			const showUserJson = await showUserResponse.json()
 			console.log('showUserJson !!!!!!!!!', showUserJson);
-			let allArtworksByUsers = this.state.allArtworksByUsers
-			allArtworksByUsers.push(showUserJson.artworks)
+
+
+			// find index of user
+			const users = this.state.users
+			// console.log('users variable', users);
+			// console.log(typeof(id));						// number
+			// console.log(typeof(this.state.users[9].id));// number
+			const index = users.findIndex(user => user.id === id)
+			// console.log('INDEXXXXXX', index, "SHOULD BE 9 if u clicked C");
+			// console.log('id', id);
+			// console.log('this.state.users[9].id', this.state.users[9].id);
+			// get the artwork of that user from the state
 			this.setState({
 				userToShowData: showUserJson.data,
-				userToShowArtworks: showUserJson.artworks
+				userToShowArtworks: this.state.allArtworksByUsers[index]
 			})
 			
 		} catch (error) {

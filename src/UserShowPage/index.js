@@ -62,8 +62,10 @@ export default class UserShowPage extends Component {
 		console.log("CURRENT USER from UserShowPage", this.props.currentUser);
 		console.log("this.props.userToShowData", this.props.userToShowData);
 		console.log("userToShowArtworks in USER SHOW PAAAge", this.props.userToShowArtworks);
+		
+		let userArtworkCard;
 		if(this.props.userToShowArtworks) {
-			const userArtworkCard = this.props.userToShowArtworks.map(artwork => {
+			userArtworkCard = this.props.userToShowArtworks.map(artwork => {
 				return (
 					<Card key={artwork.id}>
 						<Card.Content>
@@ -80,7 +82,7 @@ export default class UserShowPage extends Component {
 			&&
 			<Modal closeIcon onClose={this.props.closeShowModal} open={true}>
 				<h3>{this.props.userToShowData.username}</h3>
-				<Card.Group> </Card.Group>
+				<Card.Group> {userArtworkCard} </Card.Group>
 			
 				{
 					this.props.currentUser.id === this.props.userToShowData.id
