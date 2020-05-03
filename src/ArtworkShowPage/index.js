@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+// import Moment from 'react-moment'		// brand new update broke this :(
+// import 'moment-timezone'				// https://github.com/moment/moment/issues/4216
 import { Modal, Button } from 'semantic-ui-react'
 import EditArtModal from '../EditArtworkModal'
 
@@ -48,6 +50,7 @@ export default class ArtworkShowPage extends Component {
 	}
 
 	render() {
+		const dateToFormat = this.props.artworkToShowData.date_made
 		return (
 			<>
 				{
@@ -58,7 +61,7 @@ export default class ArtworkShowPage extends Component {
 						<img width='300px' src={this.props.artworkToShowData.image} />
 						<p>{this.props.artworkToShowData.medium}</p>
 						<p>{this.props.artworkToShowData.inspiration}</p>
-						<p>{this.props.artworkToShowData.date_made}</p>
+						
 						{
 							this.props.currentUser.id === this.props.artworkToShowData.artist.id
 							&&
