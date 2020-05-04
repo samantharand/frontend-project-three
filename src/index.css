@@ -12,22 +12,68 @@ code {
     monospace;
 }
 
+.App {
+  background-color: #9796ab;
+  height: 100vh;
+}
+
+.main {
+  background-color: rgba(100,100,100,.4);
+  width: 96vw;
+  height: 70vh;
+  margin: 0 auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: 1px solid #2F323A;
+}
+
+.input {
+  margin-top: 5px;
+}
+
 .fake-link {
   font-weight: 600;
 	cursor: pointer;
+}
 
+.card {
+  background-color: red;
 }
 
 .fake-link:hover {
   text-decoration: underline;
+  color: #2F323A;
+}
+
+.Header-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Logo, .Logo > img, .LogoSolo {
+  height: 150px;
+  display: flex;
+  align-items: center;
+}
+
+.LogoSolo {
+  align-items: flex-end;
+}
+
+.LogoSolo > img {
+  height: 75px;
+  margin-left: 17px
 }
 
 span {
   padding: 4px;
 }
 
+.userShowPageInfo {
+  margin: 50px;
+}
 
-.imageThumbnail {
+.imageThumbnail, .imageThumbnailInShowPage  {
   margin: 5px;
   display: flex;
   align-items: center;
@@ -35,8 +81,6 @@ span {
   width: 100%;
   height: 200px;
   overflow: hidden;
-
-
 }
 
 Form {

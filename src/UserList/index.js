@@ -3,9 +3,13 @@ import { Card } from 'semantic-ui-react'
 import '../index.css'
 
 export default function UserList(props) {
+	const style = ""
 	const usersListed = props.users.map(user => {
 		return (	
-			<Card key={user.id}> 
+			<Card 
+				key={user.id}
+				className='card'
+			> 
 				<Card.Content>
 					<Card.Header 
 						className='fake-link' 
@@ -14,7 +18,7 @@ export default function UserList(props) {
 						{user.username}
 					</Card.Header>
 					<Card.Description>
-						{user.bio}
+						<i>{user.location}</i>
 					</Card.Description>
 				</Card.Content>
 			</Card>

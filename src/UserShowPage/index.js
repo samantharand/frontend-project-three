@@ -69,15 +69,12 @@ export default class UserShowPage extends Component {
 				return (
 					<Card key={artwork.id}> 
 						<Card.Content>
-							<div className="imageThumbnail">
+							<div className="imageThumbnailInShowPage">
 								<Image 
-									className='fake-link'
 									src={artwork.image}
 								/>
 							</div>
-							<Card.Header 
-								className='fake-link'
-							>
+							<Card.Header>
 								{artwork.title} 
 							</Card.Header>
 							<Card.Meta>
@@ -95,19 +92,41 @@ export default class UserShowPage extends Component {
 			this.props.userToShowArtworks !== []
 			&&
 			<Modal closeIcon onClose={this.props.closeShowModal} open={true}>
-				<h3>{this.props.userToShowData.username}</h3>
-				<Card.Group> {userArtworkCard} </Card.Group>
-			
-				{
-					this.props.currentUser.id === this.props.userToShowData.id
-					&&
-					<React.Fragment>
-						<EditUserModal 
-							userToShowData={this.props.userToShowData} 
-							editUser={this.editUser}
-						/>
-					</React.Fragment>
-				}
+				<div className="userShowPageInfo">
+					<h3>{this.props.userToShowData.username}</h3>
+					<p><i>{this.props.userToShowData.location}</i></p>
+					{
+						this.props.userToShowData.age != ""
+						&&
+						<p><strong>Age:</strong> {this.props.userToShowData.age}</p>
+					}
+					{
+						this.props.userToShowData.about != ""
+						&&
+						<p><strong>About:</strong> {this.props.userToShowData.bio}</p>
+					}
+					{
+						this.props.userToShowArtworks.length !== 0
+						?
+						<React.Fragment>
+							<p><strong>Uploaded Art</strong></p>
+							<Card.Group> {userArtworkCard} </Card.Group>
+						</React.Fragment>
+						:
+						<p><i>No art uploaded yet :( </i></p>
+					}
+				
+					{
+						this.props.currentUser.id === this.props.userToShowData.id
+						&&
+						<React.Fragment>
+							<EditUserModal 
+								userToShowData={this.props.userToShowData} 
+								editUser={this.editUser}
+							/>
+						</React.Fragment>
+					}
+				</div>
 			</Modal>
 		)
 	

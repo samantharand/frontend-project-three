@@ -158,6 +158,7 @@ export default class App extends Component {
   // }
 
   render() {
+    console.log("state", this.state);
     return (
       <div className="App">
         <Header 
@@ -166,9 +167,10 @@ export default class App extends Component {
           switchMode={this.switchMode}
           toggleAdd={this.toggleAdd}
           addArt={this.addArt}
+          mode={this.state.mode}
         />
         
-        <React.Fragment>
+        <div className='main'>
           {
             this.state.mode === "Home"
             &&
@@ -198,7 +200,7 @@ export default class App extends Component {
               register={this.register}
             />
           }
-        </React.Fragment>
+        </div>
 
       </div>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button, Label } from 'semantic-ui-react'
+import '../index.css'
 
 export default class LoginRegisterForm extends Component {
 	constructor() {
@@ -11,7 +12,7 @@ export default class LoginRegisterForm extends Component {
 			age: '',
 			location: '',
 			bio: '',
-			action: 'Login'
+			action: 'Register'
 		}
 	}
 
@@ -46,7 +47,13 @@ export default class LoginRegisterForm extends Component {
 		return (
 			<div className='LoginRegisterForm'>
 				<h2> {this.state.action} </h2>
-				<p> {this.props.message} </p>
+				{
+					this.state.action == "Login"
+					?
+					<p> Don't have an account? <span onClick={this.switchAction} className='fake-link'>Make one here :)</span></p>
+					:
+					<p> Already have an account? <span onClick={this.switchAction} className='fake-link'>Sign in here :)</span></p>
+				}
 				<Form onSubmit={this.handleSubmit}>
 					<Label> username </Label>
 					<Form.Input 
@@ -111,13 +118,6 @@ export default class LoginRegisterForm extends Component {
 					}
 					<Button type='submit'> {this.state.action} </Button>
 				</Form>
-				{
-					this.state.action == "Login"
-					?
-					<p> Don't have an account? <span onClick={this.switchAction} className='fake-link'>Make one here :)</span></p>
-					:
-					<p> Already have an account? <span onClick={this.switchAction} className='fake-link'>Sign in here :)</span></p>
-				}
 			</div>
 		)
 	}
