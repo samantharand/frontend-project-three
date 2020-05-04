@@ -26,6 +26,15 @@ code {
   overflow-x: hidden;
 }
 
+.authDivRequired {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.authDivRequired > h3{
+  margin-bottom: -2px;
+}
+
 .input {
   margin-top: 5px;
 }

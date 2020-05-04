@@ -13,7 +13,7 @@ export default class App extends Component {
     this.state = {
       loggedIn: false,
       message: '',
-      mode: 'Home',
+      mode: 'Log In / Register',
       currentUser: '',
       adding: false
     }

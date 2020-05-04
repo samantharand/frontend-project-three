@@ -23,9 +23,9 @@ export default class UserContainer extends Component {
 	}
 
 	switchMode = (id) => {
-		console.log("SWITCH MODE in USER CONTAINER");
+		// console.log("SWITCH MODE in USER CONTAINER");
 
-		console.log("id from switch mode", id);
+		// console.log("id from switch mode", id);
 
 		if(this.state.mode === 'index') {
 
@@ -113,15 +113,11 @@ export default class UserContainer extends Component {
 
 	closeShowModal = () => {
 		this.switchMode()
-		// set idOfUserToShow to ''
-		// set mode to 'index'
-
-			// maybe call switch mode ???
 	}
 
 	getUsers = async () => {
 		try {
-			console.log('GET USERS CALED !!!!!!!');
+			// console.log('GET USERS CALED !!!!!!!');
 			const url = process.env.REACT_APP_API_URL + '/users/all'
 
 			const usersResponse = await fetch(url, {
@@ -129,8 +125,8 @@ export default class UserContainer extends Component {
 			})
 
 			const usersJson = await usersResponse.json()
-			console.log('USER JSONNNN', usersJson);
-			console.log('USER JSONNNN[9]', usersJson.data[9]);
+			// console.log('USER JSONNNN', usersJson);
+			// console.log('USER JSONNNN[9]', usersJson.data[9]);
 
 			if(usersJson.status === 200) {
 				this.setState({
@@ -150,18 +146,19 @@ export default class UserContainer extends Component {
 	}
 
 	deleteUser = async (deleteInfo) => {
-		console.log('deleteUser');
-		console.log('deleteInfo', deleteInfo.id);
+		// console.log('deleteUser');
+		// console.log('deleteInfo', deleteInfo.id);
 		const url = process.env.REACT_APP_API_URL + '/users/' + deleteInfo.id
-		console.log(url);
+		// console.log(url);
 		try {
+			
 			const deleteUserResponse = await fetch(url, {
 				credentials: 'include',
 				method: 'DELETE'
 			})
 
 			const deleteUserJson = await deleteUserResponse.json()
-			console.log(deleteUserJson);
+			// console.log(deleteUserJson);
 			
 			// ALSO NEED TO FETCH ALL ART AND DELETE IT WHERE ARTIST ID == USER ID
 

@@ -49,10 +49,10 @@ export default class ArtworkContainer extends Component {
 				}
 			})
 
-			console.log('showArtworkResponse', showArtworkResponse);
+			// console.log('showArtworkResponse', showArtworkResponse);
 
 			const showArtworkJson = await showArtworkResponse.json()
-			console.log('showArtworkJson', showArtworkJson);
+			// console.log('showArtworkJson', showArtworkJson);
 
 			this.setState({
 				artworkToShowData: showArtworkJson.data
@@ -145,8 +145,8 @@ export default class ArtworkContainer extends Component {
 	}
 
 	render(){
-		console.log('this.state from artwork container', this.state.artworks);
-		console.log('artworkToShowData', this.state.artworkToShowData);
+		// console.log('this.state from artwork container', this.state.artworks);
+		// console.log('artworkToShowData', this.state.artworkToShowData);
 		this.getArtworks()
 		return (
 			<>

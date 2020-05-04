@@ -54,6 +54,14 @@ export default class LoginRegisterForm extends Component {
 					:
 					<p> Already have an account? <span onClick={this.switchAction} className='fake-link'>Sign in here :)</span></p>
 				}
+				{
+					this.state.action == 'Register'
+					&&
+					<div className="authDivRequired">
+						<h3> required stuff </h3>
+						<small> you will not be able to change these later, so choose wisely</small>
+					</div>
+				}
 				<Form onSubmit={this.handleSubmit}>
 					<Label> username </Label>
 					<Form.Input 
