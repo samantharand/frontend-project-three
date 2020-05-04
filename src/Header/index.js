@@ -30,15 +30,15 @@ export default class Header extends Component {
 			<div className='Header-nav'>
 				<React.Fragment>
 				{
-					this.props.mode !== "Home"
-					?
+					// this.props.mode !== "Home"
+					// ?
 					<div className='Logo'>
 						<img src='https://i.imgur.com/gnXUQw6.png'/>
 					</div>
-					:
-					<div className='LogoSolo'>
-						<img src='https://i.imgur.com/DTn833X.png?2'/>
-					</div>
+					// :
+					// <div className='LogoSolo'>
+					// 	<img src='https://i.imgur.com/DTn833X.png?2'/>
+					// </div>
 				}
 					<div className="Nav">
 						<span className='fake-link' onClick={this.props.switchMode}>Home</span>

@@ -124,6 +124,7 @@ export default class UserShowPage extends Component {
 								userToShowData={this.props.userToShowData} 
 								editUser={this.editUser}
 							/>
+							<Button onClick={() => this.props.deleteUser(this.props.userToShowData)}>Delete Account</Button>
 						</React.Fragment>
 					}
 				</div>
@@ -133,4 +134,3 @@ export default class UserShowPage extends Component {
 	}
 }
 				// <ArtworkList artworks={this.props.userToShowArtworks}/>
-						// <Button onClick={() => this.props.deleteUser(this.props.userToShowData)}>Delete Account</Button>

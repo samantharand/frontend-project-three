@@ -5,7 +5,6 @@ export default function Home(){
 		<>
 			<h3> HOME </h3>
 			<div className='homePage'>
-				<img height='300px' src='https://i.imgur.com/gnXUQw6.png'/>
 				<div className='aboutQuart'>
 					blah  blah i like art :~)
 				</div>
@@ -14,3 +13,4 @@ export default function Home(){
 		</>
 	)
 }
+				// <img height='300px' src='https://i.imgur.com/gnXUQw6.png'/>

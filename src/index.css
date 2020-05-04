@@ -13,18 +13,17 @@ code {
 }
 
 .App {
-  background-color: #9796ab;
   height: 100vh;
 }
 
 .main {
-  background-color: rgba(100,100,100,.4);
+  /*background-color: rgba(100,100,100,.4);*/
+  /*border: 1px solid #2F323A;*/
   width: 96vw;
-  height: 70vh;
+  height: 80vh;
   margin: 0 auto;
   overflow-y: scroll;
   overflow-x: hidden;
-  border: 1px solid #2F323A;
 }
 
 .input {
@@ -46,8 +45,13 @@ code {
 }
 
 .Header-nav {
+  background-color: #9796ab;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
 }
 
 .Logo, .Logo > img, .LogoSolo {
@@ -57,7 +61,7 @@ code {
 }
 
 .LogoSolo {
-  align-items: flex-end;
+  padding-top: 20px;
 }
 
 .LogoSolo > img {
