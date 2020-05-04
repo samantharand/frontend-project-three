@@ -63,35 +63,38 @@ export default class LoginRegisterForm extends Component {
 					</div>
 				}
 				<Form onSubmit={this.handleSubmit}>
-					<Label> username </Label>
-					<Form.Input 
+					<Label> username* </Label>
+					<Form.Input
 						name='username'
 						type='text'
 						value={this.state.value}
 						placeholder='username :)'
 						onChange={this.handleChange}
+						required
 					/>
 					{
 						this.state.action == 'Register'
 						&&
 						<React.Fragment>
-							<Label> email </Label>
+							<Label> email* </Label>
 							<Form.Input 
 								name='email'
 								type='text'
 								value={this.state.value}
 								placeholder='email :)'
 								onChange={this.handleChange}
+								required
 							/>
 						</React.Fragment>
 					}
-					<Label> password </Label>
+					<Label> password* </Label>
 					<Form.Input 
 						name='password'
 						type='password'
 						value={this.state.value}
 						placeholder='password :)'
 						onChange={this.handleChange}
+						required
 					/>
 					{
 						this.state.action == 'Register'

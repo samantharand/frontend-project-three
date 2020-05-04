@@ -92,7 +92,7 @@ export default class UserShowPage extends Component {
 			this.props.userToShowArtworks !== []
 			&&
 			<Modal closeIcon onClose={this.props.closeShowModal} open={true}>
-				<div className="userShowPageInfo">
+				<div className="insideModalInfo">
 					<h3>{this.props.userToShowData.username}</h3>
 					<p><i>{this.props.userToShowData.location}</i></p>
 					{

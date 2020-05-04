@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { Modal, Button } from 'semantic-ui-react'
 import EditArtModal from '../EditArtworkModal'
 import moment from 'moment'
+import '../index.css'
 
 
 export default class ArtworkShowPage extends Component {
@@ -51,32 +52,34 @@ export default class ArtworkShowPage extends Component {
 	}
 
 	render() {
-		const dateToFormat = moment(this.props.artworkToShowData.date_made).format('dddd')
 		return (
 			<>
 				{
 					this.props.artworkToShowData.artist !== undefined
 					&&
 					<Modal open={true} closeIcon onClose={this.props.closeShowModal}>
-						<h3>{this.props.artworkToShowData.title}</h3>
-						<img width='300px' src={this.props.artworkToShowData.image} />
-						<p>{this.props.artworkToShowData.medium}</p>
-						<p>{this.props.artworkToShowData.inspiration}</p>
-						<p>{dateToFormat}</p>
-						{
-							this.props.currentUser.id === this.props.artworkToShowData.artist.id
-							&&
-							<React.Fragment>
-								<EditArtModal 
-									artworkToShowData={this.props.artworkToShowData}
-									editArtwork={this.editArtwork}
-								/>
-								<Button 
-									onClick={() => this.props.deleteArtwork(this.props.artworkToShowData)}>
-									Delete Artwork
-								</Button>
-							</React.Fragment>
-						}
+						<div className='insideModalInfo'>
+							<h3>{this.props.artworkToShowData.title}</h3>
+							<p><small><strong>By:</strong> {this.props.artworkToShowData.artist.username}</small></p>
+							<img width='300px' src={this.props.artworkToShowData.image} />
+							<p>{this.props.artworkToShowData.medium}</p>
+							<p>{this.props.artworkToShowData.inspiration}</p>
+							<p>{this.props.artworkToShowData.date_made}</p>
+							{
+								this.props.currentUser.id === this.props.artworkToShowData.artist.id
+								&&
+								<React.Fragment>
+									<EditArtModal 
+										artworkToShowData={this.props.artworkToShowData}
+										editArtwork={this.editArtwork}
+									/>
+									<Button 
+										onClick={() => this.props.deleteArtwork(this.props.artworkToShowData)}>
+										Delete Artwork
+									</Button>
+								</React.Fragment>
+							}
+						</div>
 					</Modal>
 				}	
 			</>

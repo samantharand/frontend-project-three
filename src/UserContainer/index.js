@@ -60,20 +60,20 @@ export default class UserContainer extends Component {
 			// console.log('showUserResponse', showUserResponse);
 
 			const showUserJson = await showUserResponse.json()
-			console.log('showUserJson !!!!!!!!!', showUserJson);
+			// console.log('showUserJson !!!!!!!!!', showUserJson);
 
 
 			// find index of user
-			const users = this.state.users
+			const users = await this.state.users
 			// console.log('users variable', users);
 			// console.log(typeof(id));						// number
 			// console.log(typeof(this.state.users[9].id));// number
-			const index = users.findIndex(user => user.id === id)
-			// console.log('INDEXXXXXX', index, "SHOULD BE 9 if u clicked C");
-			// console.log('id', id);
-			// console.log('this.state.users[9].id', this.state.users[9].id);
+			const index = await users.findIndex(user => user.id === id)
+			console.log('INDEXXXXXX', index);
+			console.log('id', id);
+			console.log('this.state.users[index].id', this.state.users[index].id);
 			// get the artwork of that user from the state
-			this.setState({
+			await this.setState({
 				userToShowData: showUserJson.data,
 				userToShowArtworks: this.state.allArtworksByUsers[index]
 			})
@@ -100,9 +100,9 @@ export default class UserContainer extends Component {
 
 			const showUserJson = await showUserResponse.json()
 			console.log('showUserJson !!!!!!!!!', showUserJson);
-			let allArtworksByUsers = this.state.allArtworksByUsers
-			allArtworksByUsers.push(showUserJson.artworks)
-			this.setState({
+			let allArtworksByUsers = await this.state.allArtworksByUsers
+			await allArtworksByUsers.push(showUserJson.artworks)
+			await this.setState({
 				allArtworksByUsers: allArtworksByUsers
 			})
 			
@@ -135,7 +135,7 @@ export default class UserContainer extends Component {
 			}
 
 			for(let i = 0; i < this.state.users.length; i++){
-				this.getAllArtworkByUsers(this.state.users[i].id)
+				await this.getAllArtworkByUsers(this.state.users[i].id)
 			}
 
 		} catch (error) {
