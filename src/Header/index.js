@@ -73,8 +73,6 @@ export default class Header extends Component {
 										</Modal>
 									}
 									|
-									<span className='fake-link'>View Account</span>
-									|
 									<span className='fake-link' onClick={this.props.logout}>Logout</span>
 								</div>
 							</React.Fragment>
@@ -90,3 +88,5 @@ export default class Header extends Component {
 		)		
 	}
 }
+									// |
+									// <span className='fake-link'>View Account</span>
