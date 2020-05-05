@@ -63,7 +63,11 @@ export default class ArtworkShowPage extends Component {
 							<p><small><strong>By:</strong> {this.props.artworkToShowData.artist.username}</small></p>
 							<p><strong>Medium:</strong> {this.props.artworkToShowData.medium}</p>
 							<p><strong>Inspiration:</strong> {this.props.artworkToShowData.inspiration}</p>
-							<p><strong>Date Made:</strong> {this.props.artworkToShowData.date_made}</p>
+							{
+								this.props.artworkToShowData.date_made
+								&&
+								<p><strong>Date Made:</strong> {this.props.artworkToShowData.date_made}</p>
+							}
 							<div className="artInShowPage">
 								<img width='300px' src={this.props.artworkToShowData.image} />
 							</div>

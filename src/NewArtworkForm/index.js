@@ -27,8 +27,7 @@ export default class NewArtworkForm extends Component {
 	    })
 
 	    const file = await uploadImageResponse.json()
-	    console.log('file', file);
-	    console.log('file.secure_url', file.secure_url);
+
 
 	    this.setState({
 	    	image: file.secure_url
@@ -53,7 +52,6 @@ export default class NewArtworkForm extends Component {
 	}
 
 	render() {
-		console.log(this.props);
 		return (
 			<>
 				<p>add daaaa art :)</p>
