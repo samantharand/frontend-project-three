@@ -13,14 +13,14 @@ code {
 }
 
 .App {
-  height: 100vh;
+  height: 98vh;
 }
 
 .main {
   /*background-color: rgba(100,100,100,.4);*/
   /*border: 1px solid #2F323A;*/
   width: 96vw;
-  height: 80vh;
+  height: 78vh;
   margin: 0 auto;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -109,3 +109,10 @@ Form {
 	width: 50%;
 	margin: 0 auto;
 }
+
+.Footer { 
+  margin-top: 20px;
+  background-color: #9796ab;
+  text-align: center;
+}
+

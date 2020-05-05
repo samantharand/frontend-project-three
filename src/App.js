@@ -3,6 +3,7 @@ import LoginRegisterForm from './LoginRegisterForm'
 import ArtworkContainer from './ArtworkContainer'
 import UserContainer from './UserContainer'
 import Header from './Header'
+import Footer from './Footer'
 import Home from './Home'
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
@@ -211,7 +212,7 @@ export default class App extends Component {
             />
           }
         </div>
-
+        <Footer />
       </div>
     );
   }
