@@ -38,7 +38,7 @@ export default class NewArtworkForm extends Component {
 				<p>add daaaa art :)</p>
 				<Form onSubmit={this.handleSubmit}>
 					<Form.Field>
-						<Label>Title</Label>
+						<Label>Title*</Label>
 						<Input 
 							focus
 							name='title'
@@ -46,10 +46,11 @@ export default class NewArtworkForm extends Component {
 							placeholder='Title'
 							value={this.state.title}
 							onChange={this.handleChange}
+							required
 						/>
 					</Form.Field>
 					<Form.Field>
-						<Label>Image</Label>
+						<Label>Image*</Label>
 						<Input 
 							focus
 							name='image'
@@ -57,6 +58,7 @@ export default class NewArtworkForm extends Component {
 							placeholder='Image'
 							value={this.state.image}
 							onChange={this.handleChange}
+							required
 						/>
 					</Form.Field>
 					<Form.Field>
@@ -70,7 +72,7 @@ export default class NewArtworkForm extends Component {
 							onChange={this.handleChange}
 						/>
 					</Form.Field>
-					<Label> Inspiration </Label>
+					<Label> Inspiration</Label>
 					<Form.TextArea 
 						type='text' 
 						name='inspiration' 
@@ -79,13 +81,14 @@ export default class NewArtworkForm extends Component {
 						onChange={this.handleChange}
 					/>
 					<Form.Field>
-						<Label>Date Made</Label>
+						<Label>Date Made*</Label>
 						<Input 
 							focus
 							name='date_made'
 							type='date'
 							value={this.state.date_made}
 							onChange={this.handleChange}
+							required
 						/>
 					</Form.Field>
 					<Button type="submit">Add Art</Button>

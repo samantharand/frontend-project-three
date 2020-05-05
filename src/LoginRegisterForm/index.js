@@ -100,15 +100,22 @@ export default class LoginRegisterForm extends Component {
 						this.state.action == 'Register'
 						&&
 						<React.Fragment>
-							<h3> fun stuff </h3>
-							<Label> age </Label>
+							<Label> age* </Label>
 							<Form.Input 
 								name='age'
 								type='number'
 								value={this.state.value}
 								placeholder='age :)'
 								onChange={this.handleChange}
+								required
 							/>
+						</React.Fragment>
+					}
+					{
+						this.state.action == 'Register'
+						&&
+						<React.Fragment>
+							<h3> fun stuff </h3>
 							<Label> location </Label>
 							<Form.Input 
 								name='location'

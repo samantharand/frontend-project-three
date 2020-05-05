@@ -44,14 +44,6 @@ export default class EditUserModal extends Component {
 			<Modal trigger={<Button>edit</Button>} className='EditUserModal' closeIcon>
 				<h2> Edit Your Account </h2>
 				<Form onSubmit={this.handleSubmit}>
-					<Label> age </Label>
-					<Form.Input 
-						name='age'
-						type='number'
-						value={this.state.age}
-						placeholder='age :)'
-						onChange={this.handleChange}
-					/>
 					<Label> location </Label>
 					<Form.Input 
 						name='location'
