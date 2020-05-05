@@ -52,6 +52,8 @@ export default class ArtworkShowPage extends Component {
 	}
 
 	render() {
+		const dateMade = new Date(this.props.artworkToShowData.date_made)
+
 		return (
 			<>
 				{
@@ -66,7 +68,7 @@ export default class ArtworkShowPage extends Component {
 							{
 								this.props.artworkToShowData.date_made
 								&&
-								<p><strong>Date Made:</strong> {this.props.artworkToShowData.date_made}</p>
+								<p><strong>Date Made:</strong> {dateMade.toLocaleDateString()}</p>
 							}
 							<div className="artInShowPage">
 								<img width='100%' src={this.props.artworkToShowData.image} />
