@@ -150,7 +150,9 @@ export default class App extends Component {
       })
 
       const addArtJson = await addArtResponse.json()
-      // console.log('ADD ART JSON FROM ADD ART', addArtJson);
+      
+      
+      console.log('ADD ART JSON FROM ADD ART', addArtJson);
       
     } catch (error) {
       console.error(error)

@@ -14,6 +14,27 @@ export default class NewArtworkForm extends Component {
 		}
 	}
 
+	selctedFileHandler = async (event) => {
+	    const files = event.target.files
+	    const data = new FormData()
+	    const url = 'https://api.cloudinary.com/v1_1/samantharand/image/upload'
+	    data.append('file', files[0])
+	    data.append('upload_preset', 'quart-app')
+
+	    const uploadImageResponse = await fetch(url, {
+	      method: 'POST',
+	      body: data
+	    })
+
+	    const file = await uploadImageResponse.json()
+	    console.log('file', file);
+	    console.log('file.secure_url', file.secure_url);
+
+	    this.setState({
+	    	image: file.secure_url
+	    })
+	}
+
 	handleChange = (event) => {
 		this.setState({
 			[event.target.name]: event.target.value
@@ -54,10 +75,8 @@ export default class NewArtworkForm extends Component {
 						<Input 
 							focus
 							name='image'
-							type='text'
-							placeholder='Image'
-							value={this.state.image}
-							onChange={this.handleChange}
+							type='file'
+							onChange={this.selctedFileHandler}
 							required
 						/>
 					</Form.Field>
