@@ -41,7 +41,7 @@ export default class EditUserModal extends Component {
 		console.log("THIS DOT PROPSSSS in edit user", this.props);
 		console.log("this.state", this.state);
 		return (
-			<Modal trigger={<Button>edit</Button>} className='EditUserModal' closeIcon>
+			<Modal trigger={<Button>Edit</Button>} className='EditUserModal' closeIcon>
 				<h2> Edit Your Account </h2>
 				<Form onSubmit={this.handleSubmit}>
 					<Label> location </Label>

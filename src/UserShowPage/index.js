@@ -111,7 +111,7 @@ export default class UserShowPage extends Component {
 						:
 						<p><i>No art uploaded yet :( </i></p>
 					}
-				
+					<div className='authControls'>
 					{
 						this.props.currentUser.id === this.props.userToShowData.id
 						&&
@@ -120,9 +120,10 @@ export default class UserShowPage extends Component {
 								userToShowData={this.props.userToShowData} 
 								editUser={this.editUser}
 							/>
-							<Button onClick={() => this.props.deleteUser(this.props.userToShowData)}>Delete Account</Button>
+							<Button color='red' onClick={() => this.props.deleteUser(this.props.userToShowData)}>Delete Account</Button>
 						</React.Fragment>
 					}
+					</div>
 				</div>
 			</Modal>
 		)
