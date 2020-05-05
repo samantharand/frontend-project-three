@@ -69,7 +69,7 @@ export default class ArtworkShowPage extends Component {
 								<p><strong>Date Made:</strong> {this.props.artworkToShowData.date_made}</p>
 							}
 							<div className="artInShowPage">
-								<img width='300px' src={this.props.artworkToShowData.image} />
+								<img width='100%' src={this.props.artworkToShowData.image} />
 							</div>
 							<div className="authControls">
 							{
