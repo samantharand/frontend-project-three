@@ -24,6 +24,10 @@ export default class Header extends Component {
 		}
 	}
 
+	// showCurrentUser = () => {
+		
+	// }
+
 	render() {
 		console.log('props', this.props);
 		return (
@@ -45,7 +49,7 @@ export default class Header extends Component {
 					// </div>
 				}
 					<div className="Nav">
-						<span className='fake-link' onClick={this.props.switchMode}>Home</span>
+						<span className='fake-link' onClick={this.props.goHome}>Home</span>
 						|
 						<span className='fake-link' onClick={this.props.switchMode}>User</span>
 						|

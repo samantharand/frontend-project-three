@@ -3,7 +3,7 @@ import React from 'react'
 export default function Home(){
 	return (
 		<React.Fragment>
-			<h3> HOME </h3>
+			<h3> Home </h3>
 			<div className='homePage'>
 				<div className='aboutQuart'>
 					blah  blah i like art :~)

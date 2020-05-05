@@ -46,7 +46,7 @@ export default class LoginRegisterForm extends Component {
 	render() {
 		return (
 			<div className='LoginRegisterForm'>
-				<h2> {this.state.action} </h2>
+				<h3> {this.state.action} </h3>
 				{
 					this.state.action == "Login"
 					?
@@ -58,17 +58,17 @@ export default class LoginRegisterForm extends Component {
 					this.state.action == 'Register'
 					&&
 					<div className="authDivRequired">
-						<h3> required stuff </h3>
-						<small> you will not be able to change these later, so choose wisely</small>
+						<h4> Required Stuff </h4>
+						<small> You will not be able to change these later, so choose wisely!</small>
 					</div>
 				}
 				<Form onSubmit={this.handleSubmit}>
-					<Label> username* </Label>
+					<Label> Username* </Label>
 					<Form.Input
 						name='username'
 						type='text'
 						value={this.state.value}
-						placeholder='username :)'
+						placeholder='Username'
 						onChange={this.handleChange}
 						required
 					/>
@@ -76,23 +76,23 @@ export default class LoginRegisterForm extends Component {
 						this.state.action == 'Register'
 						&&
 						<React.Fragment>
-							<Label> email* </Label>
+							<Label> Email* </Label>
 							<Form.Input 
 								name='email'
 								type='text'
 								value={this.state.value}
-								placeholder='email :)'
+								placeholder='Email'
 								onChange={this.handleChange}
 								required
 							/>
 						</React.Fragment>
 					}
-					<Label> password* </Label>
+					<Label> Password* </Label>
 					<Form.Input 
 						name='password'
 						type='password'
 						value={this.state.value}
-						placeholder='password :)'
+						placeholder='Password'
 						onChange={this.handleChange}
 						required
 					/>
@@ -100,12 +100,12 @@ export default class LoginRegisterForm extends Component {
 						this.state.action == 'Register'
 						&&
 						<React.Fragment>
-							<Label> age* </Label>
+							<Label> Age* </Label>
 							<Form.Input 
 								name='age'
 								type='number'
 								value={this.state.value}
-								placeholder='age :)'
+								placeholder='Age'
 								onChange={this.handleChange}
 								required
 							/>
@@ -115,21 +115,21 @@ export default class LoginRegisterForm extends Component {
 						this.state.action == 'Register'
 						&&
 						<React.Fragment>
-							<h3> fun stuff </h3>
-							<Label> location </Label>
+							<h4> Fun Stuff </h4>
+							<Label> Location </Label>
 							<Form.Input 
 								name='location'
 								type='text'
 								value={this.state.value}
-								placeholder='location :)'
+								placeholder='Location'
 								onChange={this.handleChange}
 							/>
-							<Label> bio </Label>
-							<Form.TextArea 
+							<Label> Bio </Label>
+							<Form.TextArea
 								name='bio'
 								type='text'
 								value={this.state.value}
-								placeholder='bio :)'
+								placeholder='Tell us about yourself :)'
 								onChange={this.handleChange}
 							/>
 						</React.Fragment>

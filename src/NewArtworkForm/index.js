@@ -62,7 +62,7 @@ export default class NewArtworkForm extends Component {
 						/>
 					</Form.Field>
 					<Form.Field>
-						<Label>Medium</Label>
+						<Label>Medium*</Label>
 						<Input 
 							focus
 							name='medium'
@@ -70,6 +70,7 @@ export default class NewArtworkForm extends Component {
 							placeholder='Medium'
 							value={this.state.medium}
 							onChange={this.handleChange}
+							required
 						/>
 					</Form.Field>
 					<Label> Inspiration</Label>

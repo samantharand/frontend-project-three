@@ -59,11 +59,14 @@ export default class UserShowPage extends Component {
 	// }
 
 	render() {
-		console.log("CURRENT USER from UserShowPage", this.props.currentUser);
+		// console.log("CURRENT USER from UserShowPage", this.props.currentUser);
 		console.log("this.props.userToShowData", this.props.userToShowData);
-		console.log("userToShowArtworks in USER SHOW PAAAge", this.props.userToShowArtworks);
+		// console.log("userToShowArtworks in USER SHOW PAAAge", this.props.userToShowArtworks);
 		
+		// console.log(this.props.userToShowData.about.length);
 		let userArtworkCard;
+		// const bio = this.props.userToShowData.about
+		// console.log(bio);
 		if(this.props.userToShowArtworks) {
 			userArtworkCard = this.props.userToShowArtworks.map(artwork => {
 				return (
@@ -80,9 +83,6 @@ export default class UserShowPage extends Component {
 							<Card.Meta>
 								<strong>Medium:</strong> {artwork.medium} 
 							</Card.Meta>
-							<Card.Description>
-								<strong>By:</strong> {artwork.artist.username.toUpperCase()} 
-							</Card.Description>
 						</Card.Content>
 					</Card>
 				)
@@ -95,13 +95,9 @@ export default class UserShowPage extends Component {
 				<div className="insideModalInfo">
 					<h3>{this.props.userToShowData.username}</h3>
 					<p><i>{this.props.userToShowData.location}</i></p>
+					<p><strong>Age:</strong> {this.props.userToShowData.age}</p>
 					{
-						this.props.userToShowData.age != ""
-						&&
-						<p><strong>Age:</strong> {this.props.userToShowData.age}</p>
-					}
-					{
-						this.props.userToShowData.about != ""
+						this.props.userToShowData.bio !== ""
 						&&
 						<p><strong>About:</strong> {this.props.userToShowData.bio}</p>
 					}

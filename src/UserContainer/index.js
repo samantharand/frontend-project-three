@@ -200,7 +200,7 @@ export default class UserContainer extends Component {
 		console.log("THIS.STATE from USER CONTAINER RENDER", this.state);
 		return (
 			<React.Fragment>
-				<h3> UserContainer </h3>
+				<h3> The Artists </h3>
 				<UserList switchMode={this.switchMode} users={this.state.users}/>
 				{
 					this.state.mode === 'show'

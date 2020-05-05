@@ -33,7 +33,7 @@ export default function ArtworkList(props) {
 	})
 	return (
 		<React.Fragment>
-			<h3> ArtworkList </h3>
+			<h3> The Artwork </h3>
 			<Card.Group centered={true}> 
 				{listedArtwork} 
 			</Card.Group>

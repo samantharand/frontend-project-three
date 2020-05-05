@@ -44,10 +44,6 @@ code {
 	cursor: pointer;
 }
 
-.card {
-  background-color: red;
-}
-
 .fake-link:hover {
   text-decoration: underline;
   color: #2F323A;
@@ -84,6 +80,19 @@ span {
 
 .insideModalInfo {
   margin: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.artInShowPage {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.authControls {
+  display: flex;
+  justify-content: space-around;  
 }
 
 .imageThumbnail, .imageThumbnailInShowPage  {

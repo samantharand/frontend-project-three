@@ -175,6 +175,7 @@ export default class App extends Component {
           addArt={this.addArt}
           mode={this.state.mode}
           goHome={this.goHome}
+          currentUser={this.state.currentUser}
         />
         
         <div className='main'>

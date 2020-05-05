@@ -22,8 +22,8 @@ export default class ArtworkShowPage extends Component {
 	}
 
 	editArtwork = async (editInfo) => {
-		console.log("EDIT INFO", editInfo);
-		console.log('ARTWORK TO SHOW DATA', this.props.artworkToShowData);
+		// console.log("EDIT INFO", editInfo);
+		// console.log('ARTWORK TO SHOW DATA', this.props.artworkToShowData);
 		try {
 
 			const url = process.env.REACT_APP_API_URL + '/artworks/' + this.props.artworkToShowData.id
@@ -61,10 +61,13 @@ export default class ArtworkShowPage extends Component {
 						<div className='insideModalInfo'>
 							<h3>{this.props.artworkToShowData.title}</h3>
 							<p><small><strong>By:</strong> {this.props.artworkToShowData.artist.username}</small></p>
-							<img width='300px' src={this.props.artworkToShowData.image} />
-							<p>{this.props.artworkToShowData.medium}</p>
-							<p>{this.props.artworkToShowData.inspiration}</p>
-							<p>{this.props.artworkToShowData.date_made}</p>
+							<p><strong>Medium:</strong> {this.props.artworkToShowData.medium}</p>
+							<p><strong>Inspiration:</strong> {this.props.artworkToShowData.inspiration}</p>
+							<p><strong>Date Made:</strong> {this.props.artworkToShowData.date_made}</p>
+							<div className="artInShowPage">
+								<img width='300px' src={this.props.artworkToShowData.image} />
+							</div>
+							<div className="authControls">
 							{
 								this.props.currentUser.id === this.props.artworkToShowData.artist.id
 								&&
@@ -74,11 +77,14 @@ export default class ArtworkShowPage extends Component {
 										editArtwork={this.editArtwork}
 									/>
 									<Button 
-										onClick={() => this.props.deleteArtwork(this.props.artworkToShowData)}>
+										onClick={() => this.props.deleteArtwork(this.props.artworkToShowData)}
+										color='red'
+									>
 										Delete Artwork
 									</Button>
 								</React.Fragment>
 							}
+							</div>
 						</div>
 					</Modal>
 				}	
