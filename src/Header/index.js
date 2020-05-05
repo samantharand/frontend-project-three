@@ -33,7 +33,11 @@ export default class Header extends Component {
 					// this.props.mode !== "Home"
 					// ?
 					<div className='Logo'>
-						<img src='https://i.imgur.com/gnXUQw6.png'/>
+						<img 
+							className='fake-link'
+							onClick={this.props.goHome}
+							src='https://i.imgur.com/gnXUQw6.png'
+						/>
 					</div>
 					// :
 					// <div className='LogoSolo'>

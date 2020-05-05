@@ -130,6 +130,12 @@ export default class App extends Component {
     })
   }
 
+  goHome = () => {
+    this.setState({
+      mode: "Home"
+    })
+  }
+
   addArt = async (artToAdd) => {
     console.log(artToAdd);
     try {
@@ -168,6 +174,7 @@ export default class App extends Component {
           toggleAdd={this.toggleAdd}
           addArt={this.addArt}
           mode={this.state.mode}
+          goHome={this.goHome}
         />
         
         <div className='main'>
