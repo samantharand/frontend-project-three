@@ -90,9 +90,17 @@ span {
   margin-bottom: 15px;
 }
 
+.ModalForm {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .authControls {
   display: flex;
   justify-content: space-around;  
+  margin-top: 10px;
 }
 
 .imageThumbnail, .imageThumbnailInShowPage  {

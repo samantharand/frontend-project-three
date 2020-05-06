@@ -53,8 +53,8 @@ export default class NewArtworkForm extends Component {
 
 	render() {
 		return (
-			<>
-				<p>add daaaa art :)</p>
+			<div className='ModalForm'>
+				<h3>Add Some Artwork</h3>
 				<Form onSubmit={this.handleSubmit}>
 					<Form.Field>
 						<Label>Title*</Label>
@@ -111,7 +111,7 @@ export default class NewArtworkForm extends Component {
 					</Form.Field>
 					<Button type="submit">Add Art</Button>
 				</Form>
-			</>
+			</div>
 
 		)
 	}
