@@ -88,7 +88,7 @@ export default class App extends Component {
         })
 
       } else {
-        console.log('ughslkdfj???/');
+        // console.log('ughslkdfj???/');
         this.setState({
           message: loginJson.message
         })
@@ -138,7 +138,7 @@ export default class App extends Component {
   }
 
   addArt = async (artToAdd) => {
-    console.log(artToAdd);
+    // console.log(artToAdd);
     try {
       const url = process.env.REACT_APP_API_URL + '/artworks/add'
       const addArtResponse = await fetch(url, {
@@ -153,7 +153,7 @@ export default class App extends Component {
       const addArtJson = await addArtResponse.json()
       
       
-      console.log('ADD ART JSON FROM ADD ART', addArtJson);
+      // console.log('ADD ART JSON FROM ADD ART', addArtJson);
       
     } catch (error) {
       console.error(error)
@@ -167,7 +167,7 @@ export default class App extends Component {
   // }
 
   render() {
-    console.log("state", this.state);
+    // console.log("state", this.state);
     return (
       <div className="App">
         <Header 
