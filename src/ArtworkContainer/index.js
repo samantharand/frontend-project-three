@@ -19,7 +19,7 @@ export default class ArtworkContainer extends Component {
 	}
 
 	switchMode = (id) => {
-		console.log("switch mode called!!! from art container");
+		// console.log("switch mode called!!! from art container");
 		if(this.state.mode === 'index'){
 
 			this.getArtworkToShowInfo(id)
@@ -36,7 +36,7 @@ export default class ArtworkContainer extends Component {
 	}
 
 	getArtworkToShowInfo = async (id) => {
-		console.log("ID FROM getArtworkToShowInfo",id);
+		// console.log("ID FROM getArtworkToShowInfo",id);
 		try {
 
 			const url = process.env.REACT_APP_API_URL + '/artworks/' + id
@@ -71,9 +71,9 @@ export default class ArtworkContainer extends Component {
 			const artworksResponse = await fetch(url, {
 				credentials: 'include'
 			})
-			console.log('artworksResponse', artworksResponse);
+			// console.log('artworksResponse', artworksResponse);
 			const artworksJson = await artworksResponse.json()
-			console.log('artworksJson', artworksJson);
+			// console.log('artworksJson', artworksJson);
 
 			if(artworksJson.status === 200) {		
 				this.setState({
@@ -91,15 +91,15 @@ export default class ArtworkContainer extends Component {
 	// }
 
 	closeShowModal = () => {
-		console.log('this.closeShowModal called');
+		// console.log('this.closeShowModal called');
 		this.switchMode()
 	}
 
 	deleteArtwork = async (deleteInfo) => {
-		console.log('deleteArtwork');
-		console.log('deleteInfo', deleteInfo.id);
+		// console.log('deleteArtwork');
+		// console.log('deleteInfo', deleteInfo.id);
 		const url = process.env.REACT_APP_API_URL + '/artworks/' + deleteInfo.id
-		console.log(url);
+		// console.log(url);
 		try {
 			const deleteArtworkResponse = await fetch(url, {
 				credentials: 'include',
@@ -107,7 +107,7 @@ export default class ArtworkContainer extends Component {
 			})
 
 			const deleteArtworkJson = await deleteArtworkResponse.json()
-			console.log(deleteArtworkJson);
+			// console.log(deleteArtworkJson);
 			
 			// ALSO NEED TO FETCH ALL ART AND DELETE IT WHERE ARTIST ID == USER ID
 
@@ -118,7 +118,7 @@ export default class ArtworkContainer extends Component {
 				this.closeShowModal()
 				this.getArtworks()
 			}
-			console.log('mode called from deleteArtwork',this.state.mode);
+			// console.log('mode called from deleteArtwork',this.state.mode);
 
 		} catch (error) {
 

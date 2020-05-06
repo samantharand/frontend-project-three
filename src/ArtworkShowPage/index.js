@@ -27,7 +27,7 @@ export default class ArtworkShowPage extends Component {
 		try {
 
 			const url = process.env.REACT_APP_API_URL + '/artworks/' + this.props.artworkToShowData.id
-			console.log('URL from EDIT ARTWORK', url);
+			// console.log('URL from EDIT ARTWORK', url);
 			const editArtworkResponse = await fetch(url, {
 				credentials: 'include',
 				method: 'PUT',
@@ -38,7 +38,7 @@ export default class ArtworkShowPage extends Component {
 			})
 
 			const editArtworkJson = await editArtworkResponse.json()
-			console.log('editArtworkJson',editArtworkJson);
+			// console.log('editArtworkJson',editArtworkJson);
 
 			if(editArtworkJson.status === 201) {
 				this.props.updateArtwork(editArtworkJson)
@@ -71,7 +71,7 @@ export default class ArtworkShowPage extends Component {
 								<p><strong>Date Made:</strong> {dateMade.toLocaleDateString()}</p>
 							}
 							<div className="artInShowPage">
-								<img width='100%' src={this.props.artworkToShowData.image} />
+								<img width='75%' src={this.props.artworkToShowData.image} />
 							</div>
 							<div className="authControls">
 							{

@@ -15,7 +15,7 @@ export default class EditArtModal extends Component {
 	}
 
 	componentDidMount() {
-		console.log('THIS DOTTT PROPS IN EDIT ART MODEL',this.props);
+		// console.log('THIS DOTTT PROPS IN EDIT ART MODEL',this.props);
 
 		{
 			this.props.artworkToShowData !== ""
@@ -37,69 +37,71 @@ export default class EditArtModal extends Component {
 	}
 
 	handleSubmit = () => {
-		console.log(this.state);
+		// console.log(this.state);
 		this.props.editArtwork(this.state)
 		//this.hideModal()
 	}
 
 	render() {
 		return (
-			<Modal trigger={<Button>Edit Artwork</Button>}>
-				<p>edit daaaa art :)</p>
-				<Form onSubmit={this.handleSubmit}>
-					<Form.Field>
-						<Label>Title</Label>
-						<Input 
-							focus
-							name='title'
-							type='text'
-							placeholder='Title'
-							value={this.state.title}
+			<Modal trigger={<Button>Edit Artwork</Button>}>	
+				<div className='ModalForm'>
+					<h3>Edit Your Artwork</h3>
+					<Form onSubmit={this.handleSubmit}>
+						<Form.Field>
+							<Label>Title</Label>
+							<Input 
+								focus
+								name='title'
+								type='text'
+								placeholder='Title'
+								value={this.state.title}
+								onChange={this.handleChange}
+							/>
+						</Form.Field>
+						<Form.Field>
+							<Label>Image</Label>
+							<Input 
+								focus
+								name='image'
+								type='text'
+								placeholder='Image'
+								value={this.state.image}
+								onChange={this.handleChange}
+							/>
+						</Form.Field>
+						<Form.Field>
+							<Label>Medium</Label>
+							<Input 
+								focus
+								name='medium'
+								type='text'
+								placeholder='Medium'
+								value={this.state.medium}
+								onChange={this.handleChange}
+							/>
+						</Form.Field>
+						<Label> Inspiration </Label>
+						<Form.TextArea 
+							type='text' 
+							name='inspiration' 
+							placeholder='What inspired this?!' 
+							value={this.state.inspiration}
 							onChange={this.handleChange}
 						/>
-					</Form.Field>
-					<Form.Field>
-						<Label>Image</Label>
-						<Input 
-							focus
-							name='image'
-							type='text'
-							placeholder='Image'
-							value={this.state.image}
-							onChange={this.handleChange}
-						/>
-					</Form.Field>
-					<Form.Field>
-						<Label>Medium</Label>
-						<Input 
-							focus
-							name='medium'
-							type='text'
-							placeholder='Medium'
-							value={this.state.medium}
-							onChange={this.handleChange}
-						/>
-					</Form.Field>
-					<Label> Inspiration </Label>
-					<Form.TextArea 
-						type='text' 
-						name='inspiration' 
-						placeholder='What inspired this?!' 
-						value={this.state.inspiration}
-						onChange={this.handleChange}
-					/>
-					<Form.Field>
-						<Label>Date Made</Label>
-						<Input 
-							focus
-							name='date_made'
-							type='date'
-							value={this.state.date_made}
-							onChange={this.handleChange}
-						/>
-					</Form.Field>
-					<Button type="submit">Submit Edits</Button>
-				</Form>
+						<Form.Field>
+							<Label>Date Made</Label>
+							<Input 
+								focus
+								name='date_made'
+								type='date'
+								value={this.state.date_made}
+								onChange={this.handleChange}
+							/>
+						</Form.Field>
+						<Button type="submit">Submit Edits</Button>
+					</Form>
+				</div>
 			</Modal>
 
 		)

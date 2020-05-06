@@ -17,7 +17,7 @@ export default class UserContainer extends Component {
 	}
 
 	componentDidMount() {
-		console.log('componentDidMount');
+		// console.log('componentDidMount');
 		this.getUsers()
 		// try to get usertoshowartworks here !! -- makes it so data is preloaded when we click the user show page
 	}
@@ -69,9 +69,9 @@ export default class UserContainer extends Component {
 			// console.log(typeof(id));						// number
 			// console.log(typeof(this.state.users[9].id));// number
 			const index = await users.findIndex(user => user.id === id)
-			console.log('INDEXXXXXX', index);
-			console.log('id', id);
-			console.log('this.state.users[index].id', this.state.users[index].id);
+			// console.log('INDEXXXXXX', index);
+			// console.log('id', id);
+			// console.log('this.state.users[index].id', this.state.users[index].id);
 			// get the artwork of that user from the state
 			await this.setState({
 				userToShowData: showUserJson.data,
@@ -99,7 +99,7 @@ export default class UserContainer extends Component {
 			// console.log('showUserResponse', showUserResponse);
 
 			const showUserJson = await showUserResponse.json()
-			console.log('showUserJson !!!!!!!!!', showUserJson);
+			// console.log('showUserJson !!!!!!!!!', showUserJson);
 			let allArtworksByUsers = await this.state.allArtworksByUsers
 			await allArtworksByUsers.push(showUserJson.artworks)
 			await this.setState({
@@ -179,7 +179,7 @@ export default class UserContainer extends Component {
 	}
 
 	updateUser = (updateInfo) => {
-		console.log("update info from updateUser", updateInfo);
+		// console.log("update info from updateUser", updateInfo);
 		this.closeShowModal()
 		// find index of user that needs updating
 		const users = this.state.users
@@ -197,7 +197,7 @@ export default class UserContainer extends Component {
 	}
 
 	render() {
-		console.log("THIS.STATE from USER CONTAINER RENDER", this.state);
+		// console.log("THIS.STATE from USER CONTAINER RENDER", this.state);
 		return (
 			<React.Fragment>
 				<h3> The Artists </h3>

@@ -30,26 +30,28 @@ export default class EditUserModal extends Component {
 	render() {
 		return (
 			<Modal trigger={<Button>Edit</Button>} className='EditUserModal' closeIcon>
-				<h2> Edit Your Account </h2>
-				<Form onSubmit={this.handleSubmit}>
-					<Label> Location </Label>
-					<Form.Input 
-						name='location'
-						type='text'
-						value={this.state.location}
-						placeholder='Location'
-						onChange={this.handleChange}
-					/>
-					<Label> Bio </Label>
-					<Form.TextArea 
-						name='bio'
-						type='text'
-						value={this.state.bio}
-						placeholder='Tell us about yourself!'
-						onChange={this.handleChange}
-					/>
-					<Button type='submit'> Submit Edits </Button>
-				</Form>
+				<div className='ModalForm'>
+					<h3>Edit Your Artwork</h3>
+					<Form onSubmit={this.handleSubmit}>
+						<Label> Location </Label>
+						<Form.Input 
+							name='location'
+							type='text'
+							value={this.state.location}
+							placeholder='Location'
+							onChange={this.handleChange}
+						/>
+						<Label> Bio </Label>
+						<Form.TextArea 
+							name='bio'
+							type='text'
+							value={this.state.bio}
+							placeholder='Tell us about yourself!'
+							onChange={this.handleChange}
+						/>
+						<Button type='submit'> Submit Edits </Button>
+					</Form>
+				</div>
 			</Modal>
 		)
 	}

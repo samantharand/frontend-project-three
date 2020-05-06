@@ -14,7 +14,7 @@ export default class UserShowPage extends Component {
 	}
 
 	editUser = async (editInfo) => {
-		console.log('edit info from edit user in user show', editInfo);
+		// console.log('edit info from edit user in user show', editInfo);
 		try {
 			
 			// console.log('editinfo from edit user in UserShowPage', editInfo);
@@ -30,7 +30,7 @@ export default class UserShowPage extends Component {
 			})
 
 			const editUserJson = await editUserResponse.json()
-			console.log("Edit User Json", editUserJson);
+			// console.log("Edit User Json", editUserJson);
 			if(editUserJson.status === 201) {
 				this.props.updateUser(editUserJson)
 				// this.props.userToShowData = editUserJson.data
@@ -60,7 +60,7 @@ export default class UserShowPage extends Component {
 
 	render() {
 		// console.log("CURRENT USER from UserShowPage", this.props.currentUser);
-		console.log("this.props.userToShowData", this.props.userToShowData);
+		// console.log("this.props.userToShowData", this.props.userToShowData);
 		// console.log("userToShowArtworks in USER SHOW PAAAge", this.props.userToShowArtworks);
 		
 		// console.log(this.props.userToShowData.about.length);

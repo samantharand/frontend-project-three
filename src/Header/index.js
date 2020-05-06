@@ -29,7 +29,7 @@ export default class Header extends Component {
 	// }
 
 	render() {
-		console.log('props', this.props);
+		// console.log('props', this.props);
 		return (
 			<div className='Header-nav'>
 				<React.Fragment>
