@@ -106,7 +106,7 @@ export default class UserShowPage extends Component {
 						?
 						<React.Fragment>
 							<p><strong>Uploaded Art</strong></p>
-							<Card.Group> {userArtworkCard} </Card.Group>
+							<Card.Group centered={true}> {userArtworkCard} </Card.Group>
 						</React.Fragment>
 						:
 						<p><i>No art uploaded yet :( </i></p>

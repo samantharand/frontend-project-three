@@ -12,7 +12,7 @@ export default class LoginRegisterForm extends Component {
 			age: '',
 			location: '',
 			bio: '',
-			action: 'Register'
+			action: 'Login'
 		}
 	}
 
